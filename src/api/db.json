@@ -1,0 +1,1000 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Dr. Ahmed",
+      "role": "doctor",
+      "email": "ahmed@clinic.com",
+      "phone": "(907) 555-0101",
+      "specialty": "Cardiology Specialist",
+      "location": "New York",
+      "experience": 10,
+      "recommendation": 85,
+      "patients": 358,
+      "availability": "24/7 Online",
+      "description": "Dr. Ahmed is a highly experienced cardiology specialist, dedicated to providing top-notch healthcare solutions.",
+      "services": [
+        {
+          "name": "Orthopedic Consultation",
+          "price": 550
+        },
+        {
+          "name": "Delivery Blocks",
+          "price": 460
+        },
+        {
+          "name": "Ultrasound Injection",
+          "price": 460
+        }
+      ],
+      "icon": "🧠"
+    },
+    {
+      "id": "2",
+      "name": "Sarah",
+      "role": "nurse",
+      "email": "sarah@clinic.com",
+      "location": "Los Angeles",
+      "phone": "(805) 555-0202",
+      "experience": 7,
+      "description": "Sarah is a skilled nurse with 7 years of experience in patient care.",
+      "icon": "👩‍⚕️"
+    },
+    {
+      "id": "3",
+      "name": "Ali",
+      "role": "patient",
+      "email": "ali@example.com",
+      "icon": "🧑‍⚕️"
+    }
+  ],
+  "prescriptions": [
+    {
+      "id": "1",
+      "patientId": 3,
+      "doctorId": 1,
+      "medicines": [
+        "Paracetamol",
+        "Amoxicillin"
+      ],
+      "date": "2025-02-16",
+      "icon": "💊"
+    }
+  ],
+  "medicalRecords": [
+    {
+      "id": "1",
+      "patientId": 3,
+      "history": "No allergies",
+      "lastVisit": "2025-01-10",
+      "icon": "📋"
+    }
+  ],
+  "dashboardStats": [
+    {
+      "id": "1",
+      "title": "Total Patients",
+      "value": 6482,
+      "trend": "up",
+      "percentage": 15.4,
+      "icon": "FaUsers",
+      "timeFrame": "Last Week"
+    },
+    {
+      "id": "2",
+      "title": "Appointments Today",
+      "value": 220,
+      "trend": "up",
+      "percentage": 4.9,
+      "icon": "IoCalendar",
+      "timeFrame": "Last Week"
+    },
+    {
+      "id": "3",
+      "title": "Revenue Summary",
+      "value": 220,
+      "trend": "down",
+      "percentage": 12.14,
+      "icon": "TbActivity",
+      "timeFrame": "Last Year"
+    },
+    {
+      "id": "4",
+      "title": "Pending Payments",
+      "value": 1640,
+      "trend": "up",
+      "percentage": 8.13,
+      "icon": "FaDollarSign",
+      "timeFrame": "Last Week"
+    }
+  ],
+  "patientsData": {
+    "Day": [
+      {
+        "hour": "00:00",
+        "Male": 5,
+        "Female": 7,
+        "Child": 2
+      },
+      {
+        "hour": "06:00",
+        "Male": 8,
+        "Female": 10,
+        "Child": 4
+      },
+      {
+        "hour": "12:00",
+        "Male": 15,
+        "Female": 20,
+        "Child": 6
+      },
+      {
+        "hour": "18:00",
+        "Male": 12,
+        "Female": 18,
+        "Child": 5
+      }
+    ],
+    "Week": [
+      {
+        "day": "Mon",
+        "Male": 100,
+        "Female": 150,
+        "Child": 50
+      },
+      {
+        "day": "Tue",
+        "Male": 120,
+        "Female": 170,
+        "Child": 60
+      },
+      {
+        "day": "Wed",
+        "Male": 140,
+        "Female": 190,
+        "Child": 70
+      },
+      {
+        "day": "Thu",
+        "Male": 160,
+        "Female": 210,
+        "Child": 80
+      },
+      {
+        "day": "Fri",
+        "Male": 180,
+        "Female": 230,
+        "Child": 90
+      },
+      {
+        "day": "Sat",
+        "Male": 200,
+        "Female": 250,
+        "Child": 100
+      },
+      {
+        "day": "Sun",
+        "Male": 220,
+        "Female": 270,
+        "Child": 110
+      }
+    ],
+    "Years": [
+      {
+        "month": "Jan",
+        "Male": 200,
+        "Female": 300,
+        "Child": 100
+      },
+      {
+        "month": "Feb",
+        "Male": 250,
+        "Female": 400,
+        "Child": 150
+      },
+      {
+        "month": "Mar",
+        "Male": 300,
+        "Female": 500,
+        "Child": 200
+      },
+      {
+        "month": "Apr",
+        "Male": 350,
+        "Female": 600,
+        "Child": 250
+      },
+      {
+        "month": "May",
+        "Male": 400,
+        "Female": 700,
+        "Child": 300
+      },
+      {
+        "month": "Jun",
+        "Male": 450,
+        "Female": 800,
+        "Child": 350
+      },
+      {
+        "month": "Jul",
+        "Male": 500,
+        "Female": 900,
+        "Child": 400
+      },
+      {
+        "month": "Aug",
+        "Male": 550,
+        "Female": 1000,
+        "Child": 450
+      },
+      {
+        "month": "Sep",
+        "Male": 600,
+        "Female": 1100,
+        "Child": 500
+      }
+    ]
+  },
+  "revenueData": {
+    "Day": [
+      {
+        "hour": "08:00",
+        "Income": 2000,
+        "Expense": 1200
+      },
+      {
+        "hour": "12:00",
+        "Income": 4000,
+        "Expense": 2500
+      },
+      {
+        "hour": "16:00",
+        "Income": 5000,
+        "Expense": 3000
+      },
+      {
+        "hour": "20:00",
+        "Income": 7000,
+        "Expense": 4500
+      }
+    ],
+    "Week": [
+      {
+        "day": "Mon",
+        "Income": 12000,
+        "Expense": 7000
+      },
+      {
+        "day": "Tue",
+        "Income": 15000,
+        "Expense": 9000
+      },
+      {
+        "day": "Wed",
+        "Income": 18000,
+        "Expense": 10000
+      },
+      {
+        "day": "Thu",
+        "Income": 20000,
+        "Expense": 12000
+      },
+      {
+        "day": "Fri",
+        "Income": 25000,
+        "Expense": 14000
+      },
+      {
+        "day": "Sat",
+        "Income": 27000,
+        "Expense": 16000
+      },
+      {
+        "day": "Sun",
+        "Income": 30000,
+        "Expense": 18000
+      }
+    ],
+    "Years": [
+      {
+        "month": "Jan",
+        "Income": 10000,
+        "Expense": 5000
+      },
+      {
+        "month": "Feb",
+        "Income": 15000,
+        "Expense": 8000
+      },
+      {
+        "month": "Mar",
+        "Income": 20000,
+        "Expense": 12000
+      },
+      {
+        "month": "Apr",
+        "Income": 25000,
+        "Expense": 15000
+      },
+      {
+        "month": "May",
+        "Income": 30000,
+        "Expense": 18000
+      },
+      {
+        "month": "Jun",
+        "Income": 35000,
+        "Expense": 20000
+      },
+      {
+        "month": "Jul",
+        "Income": 40000,
+        "Expense": 22000
+      },
+      {
+        "month": "Aug",
+        "Income": 45000,
+        "Expense": 25000
+      },
+      {
+        "month": "Sep",
+        "Income": 50000,
+        "Expense": 28000
+      }
+    ]
+  },
+  "patients": [
+    {
+      "patientId": "1",
+      "id": "1",
+      "patientName": "John Doe",
+      "age": 35,
+      "contactInfo": "(555) 890-1234",
+      "email": "johndoe@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/men/1.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-01",
+          "amount": 200,
+          "dueDate": "2025-02-10",
+          "dueStatus": "paid",
+          "action": "none"
+        },
+        {
+          "appointmentDate": "2025-02-02",
+          "amount": 220,
+          "dueDate": "2025-02-12",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        },
+        {
+          "appointmentDate": "2025-02-03",
+          "amount": 180,
+          "dueDate": "2025-02-13",
+          "dueStatus": "overdue",
+          "action": "call patient"
+        },
+        {
+          "appointmentDate": "2025-02-04",
+          "amount": 210,
+          "dueDate": "2025-02-14",
+          "dueStatus": "paid",
+          "action": "none"
+        },
+        {
+          "appointmentDate": "2025-02-05",
+          "amount": 190,
+          "dueDate": "2025-02-15",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        }
+      ]
+    },
+    {
+      "patientId": "2",
+      "id": "2",
+      "patientName": "Emily Smith",
+      "age": 42,
+      "contactInfo": "(555) 781-5678",
+      "email": "emilysmith@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/women/2.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-08",
+          "amount": 150,
+          "dueDate": "2025-02-18",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        },
+        {
+          "appointmentDate": "2025-02-09",
+          "amount": 160,
+          "dueDate": "2025-02-19",
+          "dueStatus": "paid",
+          "action": "none"
+        }
+      ]
+    },
+    {
+      "patientId": "3",
+      "id": "3",
+      "patientName": "Michael Brown",
+      "age": 50,
+      "contactInfo": "(555) 682-7890",
+      "email": "michaelbrown@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/men/3.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-05",
+          "amount": 300,
+          "dueDate": "2025-02-15",
+          "dueStatus": "overdue",
+          "action": "call patient"
+        },
+        {
+          "appointmentDate": "2025-02-06",
+          "amount": 320,
+          "dueDate": "2025-02-16",
+          "dueStatus": "paid",
+          "action": "none"
+        }
+      ]
+    },
+    {
+      "patientId": "4",
+      "id": "4",
+      "patientName": "Sophia Johnson",
+      "age": 29,
+      "contactInfo": "(555) 573-2345",
+      "email": "sophiajohnson@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/women/4.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-12",
+          "amount": 180,
+          "dueDate": "2025-02-22",
+          "dueStatus": "paid",
+          "action": "none"
+        },
+        {
+          "appointmentDate": "2025-02-13",
+          "amount": 190,
+          "dueDate": "2025-02-23",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        }
+      ]
+    },
+    {
+      "patientId": "5",
+      "id": "5",
+      "patientName": "David Wilson",
+      "age": 45,
+      "contactInfo": "(555) 464-6789",
+      "email": "davidwilson@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/men/5.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-15",
+          "amount": 220,
+          "dueDate": "2025-02-25",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        },
+        {
+          "appointmentDate": "2025-02-16",
+          "amount": 230,
+          "dueDate": "2025-02-26",
+          "dueStatus": "paid",
+          "action": "none"
+        }
+      ]
+    },
+    {
+      "patientId": "6",
+      "id": "6",
+      "patientName": "Olivia Martinez",
+      "age": 38,
+      "contactInfo": "(555) 355-1234",
+      "email": "oliviamartinez@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/women/6.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-20",
+          "amount": 250,
+          "dueDate": "2025-03-01",
+          "dueStatus": "paid",
+          "action": "none"
+        },
+        {
+          "appointmentDate": "2025-02-21",
+          "amount": 260,
+          "dueDate": "2025-03-02",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        }
+      ]
+    },
+    {
+      "patientId": "7",
+      "id": "7",
+      "patientName": "James Anderson",
+      "age": 33,
+      "contactInfo": "(555) 246-5678",
+      "email": "jamesanderson@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/men/7.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-18",
+          "amount": 190,
+          "dueDate": "2025-02-28",
+          "dueStatus": "overdue",
+          "action": "call patient"
+        },
+        {
+          "appointmentDate": "2025-02-19",
+          "amount": 200,
+          "dueDate": "2025-03-01",
+          "dueStatus": "paid",
+          "action": "none"
+        }
+      ]
+    },
+    {
+      "patientId": "8",
+      "id": "8",
+      "patientName": "Emma Thomas",
+      "age": 27,
+      "contactInfo": "(555) 137-7890",
+      "email": "emmathomas@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/women/8.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-25",
+          "amount": 160,
+          "dueDate": "2025-03-07",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        },
+        {
+          "appointmentDate": "2025-02-26",
+          "amount": 170,
+          "dueDate": "2025-03-08",
+          "dueStatus": "paid",
+          "action": "none"
+        }
+      ]
+    },
+    {
+      "patientId": "9",
+      "id": "9",
+      "patientName": "William Harris",
+      "age": 55,
+      "contactInfo": "(555) 028-2345",
+      "email": "williamharris@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/men/9.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-22",
+          "amount": 280,
+          "dueDate": "2025-03-05",
+          "dueStatus": "paid",
+          "action": "none"
+        },
+        {
+          "appointmentDate": "2025-02-23",
+          "amount": 290,
+          "dueDate": "2025-03-06",
+          "dueStatus": "pending",
+          "action": "reminder sent"
+        }
+      ]
+    },
+    {
+      "patientId": "10",
+      "id": "10",
+      "patientName": "Ava Roberts",
+      "age": 31,
+      "contactInfo": "(555) 919-6789",
+      "email": "avaroberts@example.com",
+      "profilePicture": "https://randomuser.me/api/portraits/women/10.jpg",
+      "listVisit": [
+        {
+          "appointmentDate": "2025-02-27",
+          "amount": 210,
+          "dueDate": "2025-03-10",
+          "dueStatus": "overdue",
+          "action": "call patient"
+        },
+        {
+          "appointmentDate": "2025-02-28",
+          "amount": 220,
+          "dueDate": "2025-03-11",
+          "dueStatus": "paid",
+          "action": "none"
+        }
+      ]
+    }
+  ],
+  "appointments": [
+    {
+      "patientName": "John Doe",
+      "patientId": "12345",
+      "type": "Routine Checkup",
+      "time": "8:00 AM",
+      "mobileNumber": "123-456-7890",
+      "numberInList": 1,
+      "dayOfAppointment": "2025-02-18",
+      "id": "8d7f"
+    },
+    {
+      "patientName": "Alice Brown",
+      "patientId": "33445",
+      "type": "Emergency",
+      "time": "9:00 AM",
+      "mobileNumber": "876-543-2109",
+      "numberInList": 2,
+      "dayOfAppointment": "2025-02-18",
+      "id": "3aad"
+    },
+    {
+      "patientName": "Jane Smith",
+      "patientId": "67890",
+      "type": "Follow-up Visit",
+      "time": "10:00 AM",
+      "mobileNumber": "098-765-4321",
+      "numberInList": 3,
+      "dayOfAppointment": "2025-02-18",
+      "id": "2161"
+    },
+    {
+      "patientName": "Michael Johnson",
+      "patientId": "11223",
+      "type": "Consultation",
+      "time": "11:00 AM",
+      "mobileNumber": "567-890-1234",
+      "numberInList": 4,
+      "dayOfAppointment": "2025-02-18",
+      "id": "25e4"
+    },
+    {
+      "patientName": "Sophia Adams",
+      "patientId": "55678",
+      "type": "Routine Checkup",
+      "time": "1:00 PM",
+      "mobileNumber": "234-567-8901",
+      "numberInList": 5,
+      "dayOfAppointment": "2025-02-18",
+      "id": "e30c"
+    },
+    {
+      "patientName": "David Wilson",
+      "patientId": "22334",
+      "type": "Consultation",
+      "time": "2:00 PM",
+      "mobileNumber": "555-123-4567",
+      "numberInList": 6,
+      "dayOfAppointment": "2025-02-18",
+      "id": "77b2"
+    },
+    {
+      "patientName": "Olivia Martinez",
+      "patientId": "77889",
+      "type": "Routine Checkup",
+      "time": "3:00 PM",
+      "mobileNumber": "432-567-8901",
+      "numberInList": 7,
+      "dayOfAppointment": "2025-02-18",
+      "id": "f6cb"
+    },
+    {
+      "patientName": "Emma Thomas",
+      "patientId": "99123",
+      "type": "Follow-up Visit",
+      "time": "4:00 PM",
+      "mobileNumber": "345-678-9012",
+      "numberInList": 8,
+      "dayOfAppointment": "2025-02-18",
+      "id": "0575"
+    },
+    {
+      "patientName": "William Harris",
+      "patientId": "22345",
+      "type": "Consultation",
+      "time": "9:00 AM",
+      "mobileNumber": "654-321-0987",
+      "numberInList": 9,
+      "dayOfAppointment": "2025-02-19",
+      "id": "067a"
+    },
+    {
+      "patientName": "James Anderson",
+      "patientId": "54321",
+      "type": "Routine Checkup",
+      "time": "10:00 AM",
+      "mobileNumber": "543-210-9876",
+      "numberInList": 10,
+      "dayOfAppointment": "2025-02-19",
+      "id": "e126"
+    }
+  ],
+  "events": [
+    {
+      "id": "1740167620884",
+      "title": "ramzi",
+      "start": "2025-02-21T22:53",
+      "end": "2025-02-21T12:53",
+      "description": "",
+      "backgroundColor": "#33ff57",
+      "borderColor": "#33ff57",
+      "color": "#33ff57"
+    },
+    {
+      "id": "1740167763194",
+      "title": "nmn",
+      "start": "2025-02-21T21:55",
+      "end": "2025-02-21T20:58",
+      "description": "nbbv",
+      "backgroundColor": "#007bff",
+      "borderColor": "#007bff",
+      "color": "#007bff"
+    },
+    {
+      "id": "1740167778593",
+      "title": " n",
+      "start": "2025-01-30",
+      "end": "2025-01-31",
+      "description": "",
+      "backgroundColor": "#33ff57",
+      "borderColor": "#33ff57",
+      "color": "#33ff57"
+    },
+    {
+      "id": "1740167937096",
+      "title": "ra",
+      "start": "2025-02-05T22:58",
+      "end": "2025-02-05T14:58",
+      "description": "",
+      "backgroundColor": "#ff33a8",
+      "borderColor": "#ff33a8",
+      "color": "#ff33a8"
+    },
+    {
+      "id": "1740168005255",
+      "title": "dfds",
+      "start": "2025-02-06T20:59",
+      "end": "2025-02-06T22:59",
+      "description": "gfhgf",
+      "backgroundColor": "#f4a261",
+      "borderColor": "#f4a261",
+      "color": "#f4a261"
+    },
+    {
+      "id": "1740168301265",
+      "title": "n",
+      "start": "2025-02-02T21:04",
+      "end": "2025-02-02T12:04",
+      "description": "",
+      "backgroundColor": "#2a9d8f",
+      "borderColor": "#2a9d8f"
+    },
+    {
+      "id": "1740170565217",
+      "title": "ddd",
+      "start": "2025-02-05",
+      "end": "2025-02-06",
+      "description": ",m,mn",
+      "backgroundColor": "#33ff57",
+      "borderColor": "#33ff57",
+      "color": "#33ff57"
+    },
+    {
+      "id": "1740170603285",
+      "title": "nmnm",
+      "start": "2025-02-04T21:43",
+      "end": "2025-02-04T14:43",
+      "description": ",mmn",
+      "backgroundColor": "#ff5733",
+      "borderColor": "#ff5733",
+      "color": "#ff5733"
+    },
+    {
+      "id": "1740170866985",
+      "title": "z",
+      "start": "2025-02-07",
+      "end": "2025-02-08",
+      "description": "",
+      "backgroundColor": "#ff33a8",
+      "borderColor": "#ff33a8",
+      "color": "#ff33a8"
+    },
+    {
+      "id": "1740171601777",
+      "title": "mnamsn",
+      "start": "2025-02-21T22:59",
+      "end": "2025-02-21T13:59",
+      "description": "jsmnabs",
+      "backgroundColor": "#007bff",
+      "borderColor": "#007bff",
+      "color": "#007bff"
+    },
+    {
+      "id": "1740171629186",
+      "title": "sorti",
+      "start": "2025-02-08",
+      "end": "2025-02-09",
+      "description": "",
+      "backgroundColor": "#ff5733",
+      "borderColor": "#ff5733",
+      "color": "#ff5733"
+    },
+    {
+      "id": "1740172316214",
+      "title": "n",
+      "start": "2025-02-11",
+      "end": "2025-02-12",
+      "description": "",
+      "backgroundColor": "#33a8ff",
+      "borderColor": "#33a8ff",
+      "color": "#33a8ff"
+    },
+    {
+      "id": "1740247760640",
+      "title": "ramz",
+      "start": "2025-02-13",
+      "end": "2025-02-14",
+      "description": "",
+      "backgroundColor": "#f4a261",
+      "borderColor": "#f4a261",
+      "color": "#f4a261"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Blood Pressure Test Reminder",
+      "message": "You haven’t tested your blood pressure for a while!",
+      "date": "2025-02-22T14:00:00Z",
+      "profile": {
+        "id": "D12345",
+        "name": "Dr. Ahmed Youssef",
+        "email": "ahmed.youssef@example.com",
+        "phone": "+201234567890",
+        "specialization": "Cardiologist",
+        "experience": "12 years",
+        "clinic": "Cairo Heart Center",
+        "rating": 4.8,
+        "image": "/images/RR.png"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Diabetes Checkup Alert",
+      "message": "Time for your routine diabetes checkup.",
+      "date": "2025-02-22T09:30:00",
+      "profile": {
+        "name": "Dr. Salma Hassan",
+        "email": "salma.hassan@example.com",
+        "phone": "+201112223334",
+        "specialization": "Endocrinologist",
+        "experience": "10 years",
+        "clinic": "Alex Diabetes Center",
+        "rating": 4.6,
+        "image": "doctor2.jpg"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Annual Eye Exam",
+      "message": "Your annual eye exam is due soon.",
+      "date": "2025-02-22T16:00:00",
+      "profile": {
+        "name": "Dr. Omar Khaled",
+        "email": "omar.khaled@example.com",
+        "phone": "+201000987654",
+        "specialization": "Ophthalmologist",
+        "experience": "8 years",
+        "clinic": "Vision Care Hospital",
+        "rating": 4.7,
+        "image": "doctor3.jpg"
+      }
+    },
+    {
+      "id": "4",
+      "title": "Vaccination Reminder",
+      "message": "It's time for your scheduled vaccination shot.",
+      "date": "2025-02-21T11:00:00",
+      "profile": {
+        "name": "Dr. Mona Ibrahim",
+        "email": "mona.ibrahim@example.com",
+        "phone": "+201556677889",
+        "specialization": "Pediatrician",
+        "experience": "15 years",
+        "clinic": "Hegalthy Kids Clinic",
+        "rating": 4.9,
+        "image": "doctor4.jpg"
+      }
+    },
+    {
+      "id": "5",
+      "title": "Dental Checkup Needed",
+      "message": "Don't forget your regular dental cleaning appointment.",
+      "date": "2025-02-22T13:15:00",
+      "profile": {
+        "name": "Dr. Karim Ali",
+        "email": "karim.ali@example.com",
+        "phone": "+201666888999",
+        "specialization": "Dentist",
+        "experience": "9 years",
+        "clinic": "Bright Smile Dental",
+        "rating": 4.5,
+        "image": "doctor5.jpg"
+      }
+    },
+    {
+      "id": "6",
+      "title": "Physical Therapy Session",
+      "message": "Your physical therapy session is scheduled for today.",
+      "date": "2025-02-22T10:45:00",
+      "profile": {
+        "name": "Dr. Layla Mohamed",
+        "email": "layla.mohamed@example.com",
+        "phone": "+201777999333",
+        "specialization": "Physiotherapist",
+        "experience": "7 years",
+        "clinic": "Rehab Center",
+        "rating": 4.3,
+        "image": "doctor6.jpg"
+      }
+    },
+    {
+      "id": "7",
+      "title": "COVID-19 Test Result",
+      "message": "Your COVID-19 test result is now available.",
+      "date": "2025-02-21T18:13:00",
+      "profile": {
+        "name": "Dr. Yasser Mahmoud",
+        "email": "yasser.mahmoud@example.com",
+        "phone": "+201222444666",
+        "specialization": "General Practitioner",
+        "experience": "14 years",
+        "clinic": "City Medical Center",
+        "rating": 4.2,
+        "image": "doctor7.jpg"
+      }
+    },
+    {
+      "id": "8",
+      "title": "Upcoming Consultation",
+      "message": "You have an online consultation in 15 minutes.",
+      "date": "2025-02-22T15:58:30",
+      "profile": {
+        "name": "Dr. Sara Nabil",
+        "email": "sara.nabil@example.com",
+        "phone": "+201223344556",
+        "specialization": "Dermatologist",
+        "experience": "9 years",
+        "clinic": "SkinCare Clinic",
+        "rating": 4.6,
+        "image": "doctor9.jpg"
+      }
+    },
+    {
+      "id": "9",
+      "title": "Blood Sugar Level Reminder",
+      "message": "Check your blood sugar level before your next meal.",
+      "date": "2025-02-22T16:01:45",
+      "profile": {
+        "name": "Dr. Hisham Said",
+        "email": "hisham.said@example.com",
+        "phone": "+201556677889",
+        "specialization": "Endocrinologist",
+        "experience": "12 years",
+        "clinic": "Diabetes Care Center",
+        "rating": 4.8,
+        "image": "doctor10.jpg"
+      }
+    }
+  ]
+}

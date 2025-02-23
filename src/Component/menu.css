@@ -1,0 +1,16 @@
+.menu-container {
+    position: fixed;
+    top: 60px; /* جعله يبدأ بعد الـ Navbar */
+    left: 18%; /* جعله يبدأ بعد الـ Sidebar */
+    width: 82%; /* استخدام المساحة المتبقية بعد الـ Sidebar */
+    height: calc(100vh - 60px); /* جعل الطول يعتمد على الشاشة */
+    max-height: 100vh; /* تحديد الحد الأقصى للطول */
+    padding: 20px 30px;
+    box-sizing: border-box; /* تجنب مشاكل الحسابات */
+    background-color:#f8f9fa; /* لون الخلفية */
+    color: rgb(0, 0, 0);
+    overflow-y: auto; /* السماح بالتمرير عند الحاجة */
+    z-index: 1; /* تأكد من ظهوره فوق العناصر الأخرى */
+}
+
+

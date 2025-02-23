@@ -1,0 +1,63 @@
+.timepicker-container {
+  position: relative;
+  display: inline-block;
+}
+
+.timepicker-btn {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timepicker-btn:hover {
+  background: #f4f4f4;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* أيقونة السهم */
+.timepicker-btn svg {
+  font-size: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.timepicker-btn:hover svg {
+  transform: rotate(180deg);
+}
+
+/* القائمة المنسدلة */
+.timepicker-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 130px;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 5px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* العناصر داخل القائمة المنسدلة */
+.timepicker-dropdown button {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.timepicker-dropdown button:hover {
+  background: #f0f0f0;
+}

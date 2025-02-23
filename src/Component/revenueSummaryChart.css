@@ -1,0 +1,203 @@
+.dashboard-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.chart-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 260px;
+}
+
+.total-patients-chart {
+    width: 60%;
+    
+}
+
+.revenue-summary-chart {
+    width: 40%;
+}
+ 
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chart-header h5 {
+    font-size: 14px;
+    margin: 0;
+    margin: 10px;
+    margin-right: 20px;
+
+}
+
+/* زر تحديد الإطار الزمني داخل h5 */
+.time-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.time-selector-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.time-selector-btn:hover {
+    background: #f4f4f4;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.time-selector-btn svg {
+    font-size: 14px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.time-selector-btn:hover svg {
+    transform: rotate(180deg);
+}
+
+/* القائمة المنسدلة */
+.time-Dropdowne {
+    position: absolute;
+    top:80%;
+    left: 12px;
+    width: 140px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 10;
+}
+
+
+.time-option {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.time-option:hover {
+    background: #f0f0f0;
+}
+
+/* زر نشط */
+.time-option.active {
+    font-weight: bold;
+}
+
+.chart-container {
+ 
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* زر القائمة المنسدلة */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+     display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown-button:hover svg {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu-patients{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 140px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.dropdown-menu-patients button {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu-patients  button:hover {
+    background: #f0f0f0;
+}
+
+/* زر نشط */
+.dropdown-menu-patients button.active {
+    font-weight: bold;
+}
+
+

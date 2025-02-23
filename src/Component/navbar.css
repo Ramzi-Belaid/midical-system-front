@@ -1,0 +1,517 @@
+/* تصميم الشريط العلوي */
+.right-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 10px;
+    position: sticky;
+    top: 0;
+    width: 40%;
+}
+
+/* قائمة العناصر داخل الشريط */
+.nav-ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-around;
+    gap: 12px;
+}
+
+/* تأثير عند التفاعل مع الأيقونات */
+.nav-ul li:hover {
+    transform: scale(1.1);
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+    .nav-ul {
+        gap: 15px;
+    }
+    .nav-ul li {
+        font-size: 16px;
+    }
+}
+
+/* ضبط العنصر الرئيسي */
+.nav-item {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-icon {
+    font-size: 22px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-icon:hover {
+    color: #007bff;
+}
+
+
+.badge-number {
+    position: absolute;
+    top: -7px;  /* تعديل الموضع */
+    right: -7px;
+    font-size: 10px; /* تحسين وضوح الرقم */
+    font-weight: bold;
+    width: 17px; /* حجم أفضل للشارة */
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50%; /* جعلها دائرية */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* تأثير ظل خفيف */
+}
+.badge-number .div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.bg-success{
+    display: flex;
+}
+
+/* تحسين شارة الرسائل */
+.badge-number.messages {
+    background-color: #2ca02c; /* لون أخضر للرسائل */
+}
+
+.badge{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* قائمة الإشعارات والرسائل */
+.notifications-menu,
+.messages {
+    min-width: 230px;
+    background: #fff;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    padding: 8px;
+    z-index: 1000;
+}
+
+/* رأس القائمة */
+.dropdown-header {
+    width: 100%;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #ffffff;
+    padding: 8px 0;
+    text-align: center;
+}
+
+.dropdown-header a {
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.notification-item,
+.message-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+/* التأثير عند تمرير الماوس */
+.notification-item:hover,
+.message-item:hover {
+    background: #f8f9fa;
+    border-radius: 4px;
+    transform: none !important; /* منع أي تكبير أو تصغير */
+}
+
+
+/* أيقونات الإشعارات */
+.notification-item i {
+    font-size: 16px;
+}
+
+/* نصوص الإشعارات */
+.notification-item h4,
+.message-item h4 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.notification-item p,
+.message-item p {
+    font-size: 11px;
+    margin: 0;
+    color: #666;
+}
+
+/* وقت الإشعار */
+.time {
+    font-size: 10px;
+    color: gray;
+}
+
+/* فاصل القائمة */
+.dropdown-divider {
+    margin: 4px 0;
+    border-top: 1px solid #eee;
+}
+
+/* صورة الملف الشخصي */
+.message-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* تذييل القائمة */
+.dropdown-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+}
+
+/* زر الرابط */
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none; /* إزالة التزيين */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* تأثير عند تمرير الماوس */
+.button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* عند النقر */
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.nav-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border: 2px solid  #0056b3 ;
+  }
+  
+  .nav-avatar:hover {
+    transform: scale(1.1);
+  }
+
+
+
+
+/* الحاوية الأساسية */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.525);
+    border-radius: 12px;
+    padding: 5px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 600px;
+    margin: 10px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ترتيب العناصر عمودياً */
+.rr {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* تحسين استجابة الحاوية للشاشات الكبيرة */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        gap: 24px;
+    }
+}
+
+/* الحاوية اليسرى */
+.inf-profile-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+}
+
+/* صورة البروفايل */
+.profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ;
+}
+
+.profile-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    transition: transform 0.3s ease-in-out;
+    margin: 20px 2px
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* معلومات البروفايل */
+.profil-info {
+    text-align: center;
+    height: 110px;
+}
+
+.profil-info h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1e293b;
+    margin: 3px  5px;
+}
+
+.profil-info p {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 3px  5px;
+
+}
+.profil-info p i{
+    font-size: 16;
+    color:#0056b3;
+}
+
+/* النجوم */
+.rating .bi {
+    color: #fbbf24;
+    font-size: 12px;
+}
+
+/* الأقسام */
+.section {
+    margin-top: 13px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 13px  0px;
+    color: #1e293b;
+}
+
+.section-text {
+    color: #1e293b;
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding: 0;
+}
+
+.section-text li{
+    width: 100%;
+    color:#fff ;
+    background-color: #2563eb;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 16px 12px;
+   
+}
+.section-text li div{
+
+    font-weight: 600;
+
+}
+.section-text li div span{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+/* زر قراءة المزيد */
+.read-more {
+    color: #2563eb;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.read-more:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
+/* قائمة الخدمات */
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-list-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 3px 0;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.service-price {
+    font-weight: bold;
+    color: #1e293b;
+}
+
+/* الحاوية اليمنى */
+.container-left {
+    margin-top: 20px;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+
+}
+
+.inf-profile-right {
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    padding: 20px;
+    height: 100%;
+    width: 80%;
+}
+
+/* دعم الأجهزة الكبيرة */
+@media (min-width: 768px) {
+    .container-left {
+        width: 100%;
+    }
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;  /* المحاذاة لليمين */
+    width: 82%;  /* المساحة المتبقية بعد السايدبار */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* جميع العناصر في أقصى اليمين */
+    padding: 0 20px;
+    z-index: 1000;
+    border-bottom: 1px solid #ccc;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff; /* لضمان وضوح الهيدر */
+}
+
+/* تحسين النص داخل الهيدر */
+.header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-left: auto;  /* يدفع النص إلى اليمين */
+    text-align: right;
+}
+
+/* تحسين الاستجابة على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .header {
+        left: 0;
+        width: 100%;
+        height: 55px;
+        padding: 0 15px;
+    }
+    .header h1 {
+        font-size: 16px;
+        text-align: right;
+    }
+}
+
+
+/* تنسيق Userinfo */
+.Userinfo {
+    text-align: left; /* جعل النص في اليمين */
+    width:60% ;
+    height: 100%;
+}
+
+.title h3 {
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.info span {
+
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    display: block;
+    text-align: right;
+}
+.dropdown-menu.show{
+    padding: 10px;
+}
+
+/* تحسين التصميم على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .Userinfo {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .title h3 {
+        font-size: 16px;
+    }
+
+    .info span {
+        font-size: 14px;
+    }
+}

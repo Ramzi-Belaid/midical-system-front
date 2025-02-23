@@ -1,0 +1,263 @@
+.patients-main {
+    position: fixed;
+    top: 60px;
+    left: 18%; 
+    width: 82%; 
+    height: calc(100vh - 60px);
+    max-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color:#f8f9fa; 
+    color: rgb(0, 0, 0);
+    overflow-y: auto; 
+    z-index: 1; 
+
+}
+button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* تأثير عند مرور الماوس */
+button:hover {
+    background: #f4f4f4;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* زر ثانوي مع تصميم مختلف */
+button.secondary {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px ;
+    margin-top: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 10;
+    padding: 5px 8px;
+}
+
+button.secondary:hover {
+    background-color: #007B9E;
+    color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.title-pat {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.time-dropDown {
+  position: absolute;
+  top: 65px;
+  left: 83%;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  width: 140px;
+  z-index: 1;
+  overflow: none;
+}
+.time-selector-btn svg {
+  font-size: 14px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.time-dropDown .time-optionn {
+  width: 100%;
+  padding:10px 15px;
+  font-size: 14px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.Time-option:hover {
+  background: #f0f0f0;
+}
+
+.Time-option.active {
+  font-weight: bold;
+  color: rgb(1, 1, 1);
+  border: none;
+}
+  
+  .title-pat h5 {
+    font-size: 14px;
+    color: #333;
+    padding: 5px 8px;
+
+  }
+  
+  .title-pat button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .title-pat button:hover {
+    background-color: #d2d2d2; /* Darker blue when hovered */
+  }
+  
+  .top-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding:10px ;
+    border-radius: 18px 18px 0px 0px;
+
+  }
+  
+  .top-section h5 {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .search-filter {
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .search-bar {
+    padding: 8px 15px; /* زيادة الحجم قليلاً */
+    margin-right: 15px;
+    font-size: 16px; /* تكبير الخط قليلاً */
+    width: 250px; /* توسيع العرض */
+    border: 1px solid #ccc; /* إضافة حدود خفيفة */
+    border-radius: 5px; /* إضافة زوايا دائرية */
+    background-color: rgba(255, 255, 255, 0.3); /* إضافة شفافية للون الخلفية */
+    outline: none; /* إزالة التحديد عند الضغط */
+}
+
+.search-bar:focus {
+    border-color: #268429; /* تغيير اللون عند التحديد */
+}
+
+  
+  .filter-btn {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #0056b3;
+  }
+  
+  .filter-btn:hover {
+    background-color: #0056b3;
+    opacity: 0.8;
+  }
+  
+  .patient-table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 10px;
+    
+
+  }
+  .tab{
+    padding:20px 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 0px 18px 18px;
+  }
+  
+  .patient-table th, .patient-table td {
+    padding: 4px;
+    text-align: left;
+    padding:5px 12px;
+  }
+  .patient-table td button {
+    padding: 3px 16px;
+    border-radius:10px;
+  }
+  
+  .patient-table th {
+    background-color: #ffffff;
+    border-top: 2px solid #ecedee;
+    border-bottom: 2px solid #ecedee;
+    width: 60%;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  p {
+    font-size: 16px;
+    text-align: center;
+    color: #666;
+  }
+  
+  tr {
+    background-color: #fff;
+    padding:5px 10px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+.paid-status {
+    background-color: rgba(76, 175, 79, 0.288); /* Green with transparency */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 2px;
+    
+  }
+  
+  
+  
+  .pending-status {
+    background-color: rgba(0, 123, 255, 0.3); /* Blue with transparency */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 2px;
+  }
+  .pending-overdue {
+    background-color: rgba(224, 170, 255, 0.3); /* Light Pink with transparency */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 2px;
+  }
+  
+  .patient-table button:hover {
+    opacity: 0.8;
+  }
+  
+   .contact-info div{
+    color: #c3c0c0;
+    font-size: 14px;
+   }
+  
