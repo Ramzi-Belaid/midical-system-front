@@ -48,19 +48,6 @@
       "icon": "🧑‍⚕️"
     }
   ],
-  "prescriptions": [
-    {
-      "id": "1",
-      "patientId": 3,
-      "doctorId": 1,
-      "medicines": [
-        "Paracetamol",
-        "Amoxicillin"
-      ],
-      "date": "2025-02-16",
-      "icon": "💊"
-    }
-  ],
   "medicalRecords": [
     {
       "id": "1",
@@ -995,6 +982,530 @@
         "rating": 4.8,
         "image": "doctor10.jpg"
       }
+    }
+  ],
+  "prescriptions": [
+    {
+      "id": "1",
+      "patientName": "John Doe",
+      "doctorName": "Dr. Smith",
+      "date": "2025-02-23",
+      "medications": [
+        "Paracetamol 500mg",
+        "Ibuprofen 200mg"
+      ],
+      "pdfUrl": "http://localhost:3000/files/prescription-1.pdf"
+    },
+    {
+      "id": "873f",
+      "patient": "",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "5880",
+      "patient": "Ramzi Bea",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "afd4",
+      "patient": "Ramzi Belaid",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "e8d5",
+      "patient": "Ramzi Belaid",
+      "medications": [
+        {
+          "id": 1740491214288,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "f2fe",
+      "patient": "Ramzi Belaid",
+      "medications": [
+        {
+          "id": 1740491214288,
+          "name": "a",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "1af3",
+      "patient": "Ramzi Belaid",
+      "medications": [
+        {
+          "id": 1740491214288,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "737b",
+      "patient": "Ramzi Belaid",
+      "medications": [
+        {
+          "id": 1740491214288,
+          "name": "r",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "62f2",
+      "patient": "Ramzi Belaid",
+      "medications": [
+        {
+          "id": 1740491214288,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "0fec",
+      "patient": "Ramzi Belaid",
+      "medications": [
+        {
+          "id": 1740491214288,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "4084",
+      "patient": "",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "81f0",
+      "patient": "ra",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "41fa",
+      "patient": "ramzi",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "2df2",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493002372,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "7035",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493002372,
+          "name": "a",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "de57",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493002372,
+          "name": "aaaa",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "b460",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493002372,
+          "name": "aaaa",
+          "dosage": ""
+        },
+        {
+          "id": 1740493011446,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "b2b8",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493002372,
+          "name": "aaaa",
+          "dosage": ""
+        },
+        {
+          "id": 1740493011446,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "c8e5",
+      "patient": "",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "3174",
+      "patient": "",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "0f51",
+      "patient": "",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "f1df",
+      "patient": "ra",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "d09f",
+      "patient": "ramz",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "4bee",
+      "patient": "ramzi",
+      "medications": [],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "ea0f",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493305758,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "361f",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493305758,
+          "name": "a",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "c530",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493305758,
+          "name": "ara",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "062d",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493305758,
+          "name": "ara",
+          "dosage": "500px"
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "826d",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493305758,
+          "name": "",
+          "dosage": "500px"
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "1417",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493305758,
+          "name": "ar",
+          "dosage": "500px"
+        }
+      ],
+      "date": "2025-02-25"
+    },
+    {
+      "id": "7b8d",
+      "patient": "ramzi",
+      "medications": [
+        {
+          "id": 1740493305758,
+          "name": "",
+          "dosage": "500px"
+        }
+      ],
+      "date": "2025-02-25"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "1",
+      "full_name": "Dr. John Doe",
+      "clinic": "City General Hospital",
+      "specialization": "Cardiologist",
+      "phone": "(123) 456-7890",
+      "email": "johndoe@hospital.com",
+      "address": "123 Main St, City, Country",
+      "working_hours": "Mon-Fri 9:00 AM - 5:00 PM",
+      "patients": [
+        {
+          "id": 101,
+          "name": "Jane Smith",
+          "age": 32,
+          "gender": "Female",
+          "medical_history": [
+            "Hypertension",
+            "Allergy to Penicillin"
+          ],
+          "medications": [
+            {
+              "name": "Aspirin 100mg",
+              "dosage": "1 tablet daily"
+            },
+            {
+              "name": "Lisinopril 10mg",
+              "dosage": "1 tablet every morning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "full_name": "Dr. Sarah Adams",
+      "clinic": "Green Valley Medical Center",
+      "specialization": "Dermatologist",
+      "phone": "(987) 654-3210",
+      "email": "sarahadams@medicalcenter.com",
+      "address": "456 Elm St, Green Valley, Country",
+      "working_hours": "Mon-Sat 10:00 AM - 6:00 PM",
+      "patients": [
+        {
+          "id": 202,
+          "name": "Michael Johnson",
+          "age": 45,
+          "gender": "Male",
+          "medical_history": [
+            "Eczema",
+            "Asthma"
+          ],
+          "medications": [
+            {
+              "name": "Hydrocortisone Cream",
+              "dosage": "Apply twice daily"
+            },
+            {
+              "name": "Albuterol Inhaler",
+              "dosage": "Use as needed for wheezing"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "drugs": [
+    {
+      "id": "1",
+      "name": "Paracetamol",
+      "description": "Pain reliever and fever reducer"
+    },
+    {
+      "id": "2",
+      "name": "Ibuprofen",
+      "description": "Anti-inflammatory and pain reliever"
+    },
+    {
+      "id": "3",
+      "name": "Aspirin",
+      "description": "Used for pain relief and reducing fever"
+    },
+    {
+      "id": "4",
+      "name": "Amoxicillin",
+      "description": "Antibiotic for bacterial infections"
+    },
+    {
+      "id": "5",
+      "name": "Metformin",
+      "description": "Used to treat type 2 diabetes"
+    },
+    {
+      "id": "6",
+      "name": "Omeprazole",
+      "description": "Reduces stomach acid"
+    },
+    {
+      "id": "7",
+      "name": "Losartan",
+      "description": "Used to treat high blood pressure"
+    },
+    {
+      "id": "8",
+      "name": "Simvastatin",
+      "description": "Used to lower cholesterol levels"
+    },
+    {
+      "id": "9",
+      "name": "Atorvastatin",
+      "description": "Used to reduce cholesterol"
+    },
+    {
+      "id": "10",
+      "name": "Cetirizine",
+      "description": "Antihistamine for allergies"
+    },
+    {
+      "id": "f375",
+      "name": "ش"
+    },
+    {
+      "id": "915c",
+      "name": "a"
+    },
+    {
+      "id": "0764",
+      "name": "aa"
+    },
+    {
+      "id": "b7e6",
+      "name": "aaa"
+    },
+    {
+      "id": "ffe4",
+      "name": "j"
+    },
+    {
+      "id": "dfd2",
+      "name": "jh"
+    },
+    {
+      "id": "f522",
+      "name": "jhg"
+    },
+    {
+      "id": "665d",
+      "name": "Paracetamo"
+    },
+    {
+      "id": "3c80",
+      "name": "Paracetam"
+    },
+    {
+      "id": "9709",
+      "name": "Paraceta"
+    },
+    {
+      "id": "a5c5",
+      "name": "Paracet"
+    },
+    {
+      "id": "dacb",
+      "name": "Parace"
+    },
+    {
+      "id": "729d",
+      "name": "Parac"
+    },
+    {
+      "id": "1f47",
+      "name": "Para"
+    },
+    {
+      "id": "b827",
+      "name": "Par"
+    },
+    {
+      "id": "a376",
+      "name": "Pa"
+    },
+    {
+      "id": "12bb",
+      "name": "P"
+    },
+    {
+      "id": "fba1",
+      "name": "ay"
+    },
+    {
+      "id": "bab6",
+      "name": "ayy"
+    },
+    {
+      "id": "6031",
+      "name": "aaaa",
+      "dosage": ""
+    },
+    {
+      "id": "d920",
+      "name": "aaaa",
+      "dosage": ""
+    },
+    {
+      "id": "1b4e",
+      "name": "aaaa",
+      "dosage": ""
+    },
+    {
+      "id": "945e",
+      "name": "ara"
     }
   ]
 }

@@ -1,0 +1,162 @@
+.containerr {
+  position: fixed;
+  top: 60px;
+  left: 18%;
+  width: 82%;
+  height: calc(100vh - 60px);
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  color: rgb(0, 0, 0);
+  overflow-y: auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.prescription-paper {
+  width: 550px;
+  padding: 20px;
+  background: white;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.headerr {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.hospital-name {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.hospital-info{
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+.hospital-info div p{
+  text-align: left;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  width: 100%;
+ 
+}
+.rr{
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.r{
+  display: flex;
+  align-items: center;
+}
+label {
+  width: 100%;
+
+  font-weight: bold;
+  text-align: left;
+  padding: 0px 10px;
+}
+
+input {
+  width: calc(100% - 10px);
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease-in-out;
+}
+input:focus{
+  border: 1px solid #ccc;
+  outline: none; /* لا يزيل الحدود */
+}
+
+.medication {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.add-btn,
+.download-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 8px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn:hover,
+.download-btn:hover {
+  background-color: #0056b3;
+}
+.remove-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 8px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.actions{
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+.suggestions {
+  position: absolute;
+  background: white;
+  top: 45%;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 5px 0;
+  margin-top: 5px; /* يضيف مسافة صغيرة بين الإدخال والاقتراحات */
+  width: calc(100% - 10px); /* يجعل العرض متناسبًا مع الإدخال */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.suggestions li {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out;
+}
+
+.suggestions li:hover {
+  background: #cecece;
+}
+
+.suggestions li:active {
+  background: #ddd;
+}
+
+/* جعل الإدخال وحاوية الاقتراحات متناسقين */
+.medication {
+  position: relative;
+}

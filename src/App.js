@@ -11,6 +11,8 @@ import Appointments from './Component/Appointments';
 import { Routes,Route } from 'react-router-dom';
 import MyCalendar from './Component/MyCalendar';
 import Notifications from './Component/Notifications';
+import Prescription from './Component/Prescription'
+import PrescriptionSearch from './Component/PrescriptionSearch'
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path='/appointments' element={<Appointments />}/>
           <Route path='/Schedule' element={<MyCalendar/>}/>
           <Route path='/Notifications' element={<Notifications/>}/>
+          <Route path='/Prescription' element={<Prescription/>}/>
+          <Route path='/PrescriptionSearch' element={<PrescriptionSearch/>}/>
         </Routes>
       </div>
     </>

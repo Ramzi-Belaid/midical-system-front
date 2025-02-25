@@ -1,0 +1,76 @@
+.Addmedicine{
+    position: fixed;
+    top: 60px;
+    left: 18%;
+    width: 82%;
+    height: calc(100vh - 60px);
+    max-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    color: rgb(0, 0, 0);
+    overflow-y: auto;
+    z-index: 1;
+   
+}
+.h5{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    margin: 20px;
+}
+.label {
+    font-size: 16px; /* زيادة حجم الخط قليلاً */
+    font-weight: bold;
+    margin-bottom: 8px; /* ضبط المسافة بين الليبل والإدخال */
+    padding: 5px;
+    color: #007bff; /* تغيير اللون عند التمرير */
+    display: block; /* يجعل الليبل يظهر فوق الإدخال */
+    transition: color 0.3s ease-in-out;
+}
+
+
+.Inp {
+    width: 50%;
+    padding: 12px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: block;
+}
+
+/* تأثير عند تمرير الفأرة */
+.Inp:hover {
+    border-color: #888;
+}
+
+/* تأثير عند التركيز على الحقل */
+.Inp:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.btnn{
+    background-color: #007bff;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 8px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.btnn:hover{
+    background-color: #0056b3;
+}
+.Form{
+    width: 50%;
+    border: 2px solid #ccc;
+    border-radius:5px ;
+    padding: 20px;
+    text-align: center;
+}

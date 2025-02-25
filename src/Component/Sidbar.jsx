@@ -5,6 +5,10 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { BiCalendarCheck } from "react-icons/bi";
 import { IoPeopleOutline } from "react-icons/io5";
+import { BsPrescription2 } from "react-icons/bs";
+import { GiMedicinePills } from "react-icons/gi";
+
+
 import "./sidbar.css";
 import Searchbar from "./Searchbar";
 import Logo from "./Logo";
@@ -43,6 +47,16 @@ function Sidebar() {
           <li>
             <Link to="/Schedule" className={activePath === "/Schedule" ? "active" : ""}>
               <AiOutlineSchedule className="icon" />Schedule
+            </Link>
+          </li>
+          <li>
+            <Link to="/Prescription" className={activePath === "/Prescription" ? "active" : ""}>
+              <GiMedicinePills className="icon" />Prescription
+            </Link>
+          </li>
+          <li>
+            <Link to="/PrescriptionSearch" className={activePath === "/PrescriptionSearch" ? "active" : ""}>
+              <BsPrescription2 className="icon" />PrescriptionSearch
             </Link>
           </li>
         </ul>
