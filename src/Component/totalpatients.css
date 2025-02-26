@@ -94,18 +94,29 @@
   
   .icon-patients {
     color: #e0aaff;
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 50%;
   }
   
   .icon-appointments {
     color: #007bff;
+    font-size: 20px;
+    border-radius: 50%;
   }
   
   .icon-active {
     color: #4CAF50;
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 50%;
   }
   
   .icon-revenue {
     color: #f7b801;
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 50%;
   }
   
   .trend-icon {

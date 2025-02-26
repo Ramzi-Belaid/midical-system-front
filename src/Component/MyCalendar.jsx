@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Modal from "react-modal";
 import axios from "axios";
@@ -28,8 +27,8 @@ const MyCalendar = () => {
       .then((response) => {
         const updatedEvents = response.data.map((event) => ({
           ...event,
-          backgroundColor: event.backgroundColor || event.color,
-          borderColor: event.borderColor || event.color,
+          backgroundColor: event.color || "#007bff",
+          borderColor: event.color || "#007bff",
           textColor: "#fff",
         }));
         setEvents(updatedEvents);
@@ -61,6 +60,31 @@ const MyCalendar = () => {
     setModalIsOpen(true);
   };
 
+  const handleSaveEvent = () => {
+    if (!newEvent.title || !newEvent.start || !newEvent.end) {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    const eventToAdd = {
+      title: newEvent.title,
+      start: newEvent.start,
+      end: newEvent.end,
+      description: newEvent.description,
+      color: newEvent.color,
+      backgroundColor: newEvent.color,
+      borderColor: newEvent.color,
+      textColor: "#fff",
+    };
+
+    axios.post("http://localhost:5000/events", eventToAdd)
+      .then((response) => {
+        setEvents([...events, response.data]);
+        closeModal();
+      })
+      .catch((error) => console.error("Error saving event:", error));
+  };
+
   const closeModal = () => {
     setModalIsOpen(false);
     setSelectedEvent(null);
@@ -70,7 +94,7 @@ const MyCalendar = () => {
   return (
     <div className="calendar-container">
       <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
         selectable={true}
         selectMirror={true}
@@ -111,16 +135,19 @@ const MyCalendar = () => {
               value={newEvent.description}
               onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
             />
-            <button className="save-btn">Save Event</button>
+            <input
+              type="color"
+              value={newEvent.color}
+              onChange={(e) => setNewEvent({ ...newEvent, color: e.target.value })}
+            />
+            <button className="save-btn" onClick={handleSaveEvent}>Save Event</button>
           </div>
         ) : selectedEvent ? (
-          <div className="modal-content">
-            <button className="close-btn" onClick={closeModal}>&times;</button>
+          <div className="modal-content" style={{ backgroundColor: selectedEvent.color }}>
             <h2>{selectedEvent.title}</h2>
             <p><strong>Start:</strong> {selectedEvent.start}</p>
             <p><strong>End:</strong> {selectedEvent.end}</p>
             <p><strong>Description:</strong> {selectedEvent.description}</p>
-            <button className="save-btn" onClick={closeModal}>Close</button>
           </div>
         ) : null}
       </Modal>

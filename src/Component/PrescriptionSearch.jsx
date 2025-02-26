@@ -13,6 +13,7 @@ const PrescriptionSearch = () => {
       .then((response) => {
         setPrescriptions(response.data);
         setFilteredPrescriptions(response.data);
+        console.log(response.data); // لمراجعة البيانات المسترجعة
       })
       .catch(() => console.error("Error loading prescriptions"));
   }, []);
@@ -27,7 +28,6 @@ const PrescriptionSearch = () => {
 
   return (
     <div className="prescription-container">
-        
       <div className="search-fields">
         <input
           type="text"
@@ -60,9 +60,13 @@ const PrescriptionSearch = () => {
                 <td>{prescription.date || "N/A"}</td>
                 <td>
                   <ul className="med">
-                    {prescription.medications?.map((med, index) => (
-                      <li key={index} className="med">{med}</li>
-                    )) || "No Medications"}
+                    {Array.isArray(prescription.medications) && prescription.medications.length > 0 ? (
+                      prescription.medications.map((med, index) => (
+                        <li key={index} className="med">{med.name} - {med.dosage}</li>
+                      ))
+                    ) : (
+                      <li>No Medications</li>
+                    )}
                   </ul>
                 </td>
               </tr>

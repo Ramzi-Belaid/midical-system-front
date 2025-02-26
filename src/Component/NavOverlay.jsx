@@ -32,7 +32,7 @@ const NavOverlay = ({ isOverlayOpen, clsoeOverlay }) => {
 
   return (
     <Overlay isOpen={isOverlayOpen} onClose={clsoeOverlay}>
-      <div className="container">
+      <div className="container-avatar">
         {loading ? (
           <p className="loading">Loading...</p>
         ) : error ? (
