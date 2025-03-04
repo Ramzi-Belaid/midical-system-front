@@ -5,20 +5,31 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const login = () => {
+  // ✅ تسجيل الدخول
+  const login = (userData) => {
+    setUser(userData);
     setIsAuthenticated(true);
-    navigate("/"); // ✅ بعد تسجيل الدخول، ينقل إلى Menu
+    
+    // ✅ توجيه المستخدم حسب الدور
+    if (userData.role === "doctor") {
+      navigate("/menu", { replace: true });
+    } else if (userData.role === "secretary") {
+      navigate("/menu", { replace: true });
+    }
   };
 
+  // ✅ تسجيل الخروج
   const logout = () => {
+    setUser(null);
     setIsAuthenticated(false);
-    navigate("/login"); // ✅ بعد تسجيل الخروج، ينقل إلى Login
+    navigate("/login", { replace: true });
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

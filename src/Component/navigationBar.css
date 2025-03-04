@@ -1,17 +1,17 @@
-/* تنسيق الـ Navbar */
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  color: white;
-  height: 70px;
-  
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-logo {
-  font-size: 24px;
-  font-weight: bold;
+.logo-home {
+  width: 160px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .navbar-buttons {
@@ -20,8 +20,8 @@
 }
 
 .navbar-button {
-  background-color: white;
-  color: #007bff;
+  background-color: #007bff;
+  color: white;
   border: none;
   padding: 8px 15px;
   border-radius: 5px;
@@ -32,11 +32,10 @@
 
 .navbar-button:hover {
   background-color: #0056b3;
-  color: white;
 }
 
-/* تنسيق الـ Overlay */
-.overlay-container {
+/* Overlay (Login) Styling */
+.overlay-container-login {
   position: fixed;
   top: 0;
   left: 0;
@@ -48,87 +47,64 @@
   justify-content: center;
 }
 
-.overlay-content {
+.overlay-content-login {
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 25px;
+  border-radius: 10px;
   width: 350px;
   text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
   margin-bottom: 15px;
+  color: #333;
 }
 
-.nav-input-field {
+/* Role Selection */
+.role-selection {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.role-selection label {
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
   width: 90%;
   padding: 10px;
   margin: 8px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 14px;
 }
 
+/* Login Button */
 .overlay-button {
   width: 100%;
   padding: 10px;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   margin-top: 10px;
-  
+  transition: background 0.3s;
 }
 
 .overlay-button:hover {
   background-color: #0056b3;
 }
 
-/* Global Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
-
-/* Navbar */
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #222;
-}
-
-.navbar-buttons {
-  display: flex;
-  gap: 15px;
-}
-
-.navbar-button {
-  padding: 10px 20px;
-  border: none;
-  color: ;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  border:2px solid #ccc;
-}
-
-.navbar-button:hover {
-  background-color: #357abd;
-}
-
-/* Main Content */
+/* Home Page Styling */
 .container-home {
   max-width: 1200px;
   margin: 50px auto;
@@ -164,12 +140,6 @@ body {
   margin-bottom: 20px;
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
 .appointment-button {
   padding: 12px 20px;
   border: none;
@@ -185,18 +155,7 @@ body {
   background-color: #357abd;
 }
 
-.see-how {
-  font-size: 16px;
-  color: #4a90e2;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.see-how:hover {
-  text-decoration: underline;
-}
-
-/* Right Section (Doctors' Images) */
+/* Right Section (Doctor Images) */
 .hero-right {
   display: flex;
   align-items: center;
@@ -224,9 +183,13 @@ body {
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
-.logo-home{
-  width: 160px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 10px;
+.switch-mode {
+  color: blue;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.switch-mode:hover {
+  text-decoration: underline;
 }

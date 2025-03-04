@@ -1,68 +1,89 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import "./navigationBar.css";
-import image1 from '../images/rrr.png'
-import image2 from '../images/do.png'
-import image3 from '../images/images2.png'
-import image4 from '../images/RR.png'
+import image4 from "../images/RR.png";
 
 const NavigationBar = () => {
   const { isAuthenticated, login } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("doctor");
+  const [credentials, setCredentials] = useState({ fullName: "", password: "" });
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+
+  // ✅ عند تسجيل الدخول، انتقل إلى "/menu" بشكل صحيح
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/menu", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
+
+  // ✅ تسجيل الدخول بدون فحص البيانات (دخول مباشر)
+  const handleLogin = () => {
+    login({ fullName: credentials.fullName, role: selectedRole });
+    setIsOpen(false);
+  };
 
   return (
     <>
       <nav className="navbar-container">
-      <img src={image4} alt="" className="logo-home"/>
-      <div className="navbar-buttons">
-          {isAuthenticated ? (
-            <p className="welcome-text">Welcome, User!</p> 
-          ) : (
-            <>
-              <button onClick={() => setIsOpen(true)} className="navbar-button">Login</button>
-              <button onClick={() => setIsOpen(true)} className="navbar-button">Sign Up</button>
-            </>
-          )}
+        <img src={image4} alt="Logo" className="logo-home" />
+        <div className="navbar-buttons">
+          <button onClick={() => setIsOpen(true)} className="navbar-button">
+            Login
+          </button>
         </div>
       </nav>
 
-      {isOpen && !isAuthenticated && (
-        <div className="overlay-container" onClick={() => setIsOpen(false)}>
-          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+      {isOpen && (
+        <div className="overlay-container-login" onClick={() => setIsOpen(false)}>
+          <div className="overlay-content-login" onClick={(e) => e.stopPropagation()}>
             <h2>Login</h2>
-            <button className="overlay-button" onClick={login}>Enter Without Sign Up</button>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={credentials.fullName}
+              onChange={(e) => setCredentials({ ...credentials, fullName: e.target.value })}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={credentials.password}
+              onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+            />
+
+            <div className="role-selection">
+              <label>
+                <input
+                  type="radio"
+                  name="role"
+                  value="doctor"
+                  checked={selectedRole === "doctor"}
+                  onChange={() => setSelectedRole("doctor")}
+                />
+                Doctor
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="role"
+                  value="secretary"
+                  checked={selectedRole === "secretary"}
+                  onChange={() => setSelectedRole("secretary")}
+                />
+                Secretary
+              </label>
+            </div>
+
+            <button className="overlay-button" onClick={handleLogin}>
+              Login
+            </button>
           </div>
         </div>
       )}
-
-      <div className="container-home">
-        {/* Left Section */}
-        <div className="hero-left">
-          <p className="subtitle">WE ARE HERE FOR YOU</p>
-          <h1 className="title">Welcome to <br /> Medical Clinic</h1>
-          <p className="description">
-          Get the best health experience. We follow the development path, and we regularly work on expanding the scope of our services.
-          </p>
-          <button className="appointment-button">hello hello hello</button>
-
-          
-        </div>
-
-        {/* Right Section (Doctor Images) */}
-        <div className="hero-right">
-          <div className="hero-large-image">
-            <img src={image1} alt="Doctor 1" />
-          </div>
-          <div className="hero-small-images">
-            <div className="hero-small-image">
-              <img src={image2} alt="Doctor 2" />
-            </div>
-            <div className="hero-small-image">
-              <img src={image3} alt="Doctor 3" />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

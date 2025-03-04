@@ -162,7 +162,7 @@ const MedicalPrescription = ({ loggedInDoctorId }) => {
         </div>
       </div>
       <div className="actions">
-        <button onClick={addMedication} className="add-btn">➕ Add Medication</button>
+        <button onClick={addMedication} className="add-bt">➕ Add Medication</button>
         <button onClick={removeLastMedication} className="remove-btn">❌ Remove Last Medication</button>
         <button onClick={generatePDF} className="download-btn">📄 Download PDF</button>
       </div>

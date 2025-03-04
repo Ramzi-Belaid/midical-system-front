@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { GoStarFill } from "react-icons/go";
-import image from "../images/RR.png"
+// import image from "../images/RR.png"
 import "./notifications.css";
 
 function Notifications() {

@@ -17,7 +17,7 @@ const MedicalLanding = () => {
           </p>
           <div className="buttons">
             <button className="appointment-button">Make An Appointment</button>
-            <a href="#" className="see-how">See How We Work →</a>
+            <a href="/" className="see-how">See How We Work →</a>
           </div>
         </div>
 

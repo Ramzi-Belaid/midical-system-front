@@ -30,7 +30,7 @@ function Sidebar() {
       <nav className="sidebar-nav">
         <ul>
           <li>
-            <Link to="/" className={activePath === "/" ? "active" : ""}>
+            <Link to="/menu" className={activePath === "/" ? "active" : ""}>
               <LuLayoutDashboard className="icon" />Dashboard
             </Link>
           </li>
@@ -55,7 +55,7 @@ function Sidebar() {
             </Link>
           </li>
           <li>
-            <Link to="/PrescriptionSearch" className={activePath === "/PrescriptionSearch" ? "active" : ""}>
+            <Link to="/prescription-search" className={activePath === "/prescription-search" ? "active" : ""}>
               <BsPrescription2 className="icon" />PrescriptionSearch
             </Link>
           </li>
