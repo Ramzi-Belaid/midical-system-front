@@ -18,42 +18,52 @@ import MyCalendar from "./Component/MyCalendar";
 import Notifications from "./Component/Notifications";
 import Prescription from "./Component/Prescription";
 import PrescriptionSearch from "./Component/PrescriptionSearch";
-import NavigationBar from "./Component/NavigationBar";
 import Secretarypatients from "./Component/Secretarypatients";
 import Secretaryappointments from "./Component/Secretary-appointments";
-
+import MedicalLanding from "./Component/MedicalLanding";
+import AdminSignUp from "./Component/AdminSignUp";
+import AdminDoctor from "./Component/AdminDoctor"; // ✅ لوحة تحكم المسؤول
+import AdminHeader from './Component/AdminHeader'
+import AdminSidbar from './Component/AdminSidbar'
+import AdminSecretary from './Component/AdminSecretary'
 // ✅ مكون لحماية المسارات بناءً على الدور
 const ProtectedRoute = ({ element, allowedRoles }) => {
   const { isAuthenticated, user } = useAuth();
 
-  if (!isAuthenticated) return <Navigate to="/login" replace />;
-  if (!allowedRoles.includes(user?.role)) return <Navigate to="/" replace />;
+  if (!isAuthenticated) return <Navigate to="/" replace />;
+  if (!allowedRoles.includes(user?.role)) return <Navigate to="/menu" replace />;
 
   return element;
 };
 
 function App() {
-  const { isAuthenticated, user } = useAuth();
-  const location = useLocation(); // ✅ الحصول على المسار الحالي
+  const { isAuthenticated, user, isAdmin } = useAuth();
+  const location = useLocation();
 
-  // ✅ إخفاء Navbar و Sidebar إذا كان المستخدم في صفحة /login
-  const isLoginPage = location.pathname === "/login";
+  const isLoginPage = location.pathname === "/";
+  const isDoctor = user?.role === "doctor";
+  const isSecretary = user?.role === "secretary";
 
   return (
     <>
       {/* ✅ عرض Navbar و Sidebar فقط إذا لم يكن المستخدم في صفحة /login */}
-      {!isLoginPage && isAuthenticated && user?.role === "doctor" && <Header />}
-      {!isLoginPage && isAuthenticated && user?.role === "secretary" && <SecretaryHeader />}
-      {!isLoginPage && isAuthenticated && user?.role === "doctor" && <Sidebar />}
-      {!isLoginPage && isAuthenticated && user?.role === "secretary" && <SecretarySidebar />}
+      {!isLoginPage && isAuthenticated && (
+        <>
+          {isDoctor && <Header />}
+          {isSecretary && <SecretaryHeader />}
+          {isDoctor && <Sidebar />}
+          {isSecretary && <SecretarySidebar />}
+          {isAdmin && <AdminHeader />} {/* ✅ عرض Navbar خاص بالمشرف */}
+          {isAdmin && <AdminSidbar />} {/* ✅ عرض Navbar خاص بالمشرف */}
+
+        </>
+      )}
 
       <div className="main-container">
         <Routes>
-          {/* ✅ التوجيه التلقائي إلى /login إذا لم يكن المستخدم مسجلاً */}
-          <Route path="/" element={<Navigate to="/login" replace />} />
-
-          {/* ✅ صفحة تسجيل الدخول */}
-          <Route path="/login" element={<NavigationBar />} />
+          {/* ✅ إعادة توجيه المستخدم المصادق عليه بعيدًا عن /login */}
+          <Route path="/" element={isAuthenticated ? <Navigate to="/menu" replace /> : <MedicalLanding />} />
+          <Route path="/admin-signup" element={<AdminSignUp />} />
 
           {/* ✅ المسارات المحمية للطبيب والسكرتير */}
           <Route path="/menu" element={<ProtectedRoute element={<Menu />} allowedRoles={["doctor", "secretary"]} />} />
@@ -66,8 +76,13 @@ function App() {
 
           {/* ✅ المسارات المحمية للسكرتير */}
           <Route path="/secretary-patients" element={<ProtectedRoute element={<Secretarypatients />} allowedRoles={["secretary"]} />} />
-          
           <Route path="/secretary-appointments" element={<ProtectedRoute element={<Secretaryappointments />} allowedRoles={["secretary"]} />} />
+
+          {/* ✅ المسارات المحمية للمشرف */}
+          <Route path="/Admin-Doctor" element={<ProtectedRoute element={<AdminDoctor />} allowedRoles={["admin"]} />} />
+          <Route path="/Admin-Secretary" element={<ProtectedRoute element={<AdminSecretary />} allowedRoles={["admin"]} />} />
+
+          
         </Routes>
       </div>
     </>

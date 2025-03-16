@@ -1661,6 +1661,30 @@
       "patient": "",
       "medications": [],
       "date": "2025-03-04"
+    },
+    {
+      "id": "3431",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-09"
+    },
+    {
+      "id": "6733",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-15"
+    },
+    {
+      "id": "a846",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-15"
+    },
+    {
+      "id": "73ed",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-16"
     }
   ],
   "doctors": [
@@ -1691,38 +1715,6 @@
             {
               "name": "Lisinopril 10mg",
               "dosage": "1 tablet every morning"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "2",
-      "full_name": "Dr. Sarah Adams",
-      "clinic": "Green Valley Medical Center",
-      "specialization": "Dermatologist",
-      "phone": "(987) 654-3210",
-      "email": "sarahadams@medicalcenter.com",
-      "address": "456 Elm St, Green Valley, Country",
-      "working_hours": "Mon-Sat 10:00 AM - 6:00 PM",
-      "patients": [
-        {
-          "id": 202,
-          "name": "Michael Johnson",
-          "age": 45,
-          "gender": "Male",
-          "medical_history": [
-            "Eczema",
-            "Asthma"
-          ],
-          "medications": [
-            {
-              "name": "Hydrocortisone Cream",
-              "dosage": "Apply twice daily"
-            },
-            {
-              "name": "Albuterol Inhaler",
-              "dosage": "Use as needed for wheezing"
             }
           ]
         }
@@ -1879,5 +1871,11 @@
       "id": "74d4",
       "name": "rr"
     }
-  ]
+  ],
+    "secretaries": [
+      { "id": 1, "full_name": "Sarah Connor", "email": "sarah@clinic.com", "phone": "123456789", "schedule": "8 AM - 4 PM" },
+      { "id": 2, "full_name": "John Doe", "email": "john@clinic.com", "phone": "987654321", "schedule": "10 AM - 6 PM" }
+    ],
+    "admins": []
+  
 }

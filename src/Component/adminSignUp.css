@@ -1,0 +1,71 @@
+.signup-container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-form h3 {
+    text-align: left;
+    margin: 15px 0 8px;
+    font-size: 20px;
+    color: #222;
+    font-weight: 600;
+  }
+  
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .input-group input {
+    flex: 1; /* توزيع المساحة بالتساوي */
+    padding: 12px;
+    border: 2px solid #007bff;  /* ✅ إضافة حدود زرقاء */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .input-group input:focus {
+    border-color: #0056b3; /* ✅ تغيير لون الحدود عند التركيز */
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  }
+  
+  .signup-btn {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-top: 15px;
+  }
+  
+  .signup-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  /* ✨ استجابة للشاشات الصغيرة */
+  @media (max-width: 600px) {
+    .input-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
