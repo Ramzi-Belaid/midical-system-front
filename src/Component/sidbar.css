@@ -1,236 +1,267 @@
+/* Main Sidebar */
 .sidebar {
-    width: 18%;
-    height: 100vh;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: fixed;
-    left: 0;
-    top: 0;
-    border-right: 1px solid #ddd;
-    padding: 10px 0;
-    transition: width 0.3s ease-in-out;
-    
+  width: 18%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #ddd;
+  padding: 10px 0;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateX(0);
+  z-index: 0;
+  overflow: hidden; /* إزالة الـ scroll */
 }
-/* إخفاء الـ Sidebar عندما تكون الفئة "toggle-menu" مضافة إلى الـ body */
+
+/* Hide Sidebar when "toggle-menu" class is on body */
 .toggle-menu .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
 }
 
-/* عندما يكون الـ Sidebar مفتوحًا */
-.sidebar {
-    transform: translateX(0);
-    transition: transform 0.3s ease-in-out;
-}
-
-
-
-/* عنوان القائمة */
+/* Menu title */
 .sidebar-title {
-    text-transform: uppercase;
-    font-size: 12px;
-    color: #999;
-    margin: 3px 5px 5px;
-    font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #999;
+  margin: 3px 5px 5px;
+  font-weight: bold;
 }
 
-/* تصميم القائمة */
+/* Menu design */
 .sidebar-nav ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
+  list-style: none;
+  padding: 0;
+  width: 100%;
 }
 
 .sidebar-nav ul li {
-    width: 100%;
+  width: 100%;
 }
 
-/* تحسين تنسيق الروابط */
 .sidebar-nav ul li a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #595959;
-    padding: 8px 20px;
-    transition: background 0.3s ease-in-out;
-    font-size: 14px;
-    border-radius: 0px 6px 6px 0px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #595959;
+  padding: 8px 20px;
+  transition: all 0.3s ease-in-out;
+  font-size: 14px;
+  border-radius: 0px 6px 6px 0px;
 }
 
 .sidebar-nav ul li a .icon {
-    font-size: 20px;
-    margin-right: 10px;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .sidebar-nav ul li a:hover {
-    background-color: #f0f0ff;
-    color: #3e1fee;
-    font-weight: bold;
-    border-left: 3px solid #3e1fee;
+  background-color: #f0f0ff;
+  color: #3e1fee;
+  font-weight: bold;
+  border-left: 3px solid #3e1fee;
 }
+
 .sidebar-nav ul li a.active {
-    color: #3e1fee;
-    font-weight: bold;
-    background-color: #f0f0ff;
+  color: #3e1fee;
+  font-weight: bold;
+  background-color: #f0f0ff;
 }
 
-/* 🌐 ✅ دعم الشاشات الصغيرة */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 60px; /* تقليل العرض عند تصغير الشاشة */
-        padding: 10px; /* تصغير المسافات */
-        overflow-x: hidden; /* إخفاء النص الزائد */
-    }
-
-    .sidebar-logo {
-        font-size: 18px;
-        text-align: center;
-        padding-right: 0;
-    }
-
-    .sidebar-title {
-        display: none; /* إخفاء العناوين في الشاشات الصغيرة */
-    }
-
-    .sidebar-nav ul li a {
-        justify-content: center; /* جعل الأيقونات في المنتصف */
-        padding: 10px;
-    }
-
-    .sidebar-nav ul li a .icon {
-        margin-right: 0; /* إزالة المسافة بين الأيقونة والنص */
-    }
-
-    .sidebar-nav ul li a span {
-        display: none; /* إخفاء النص والإبقاء على الأيقونات */
-    }
+/* Highlight search results */
+.sidebar-nav ul li.search-result a {
+  background-color: #fff3cd;
+  border-left: 3px solid #ffc107;
+  animation: highlightSearch 0.3s ease-in-out;
 }
-/* تصميم شريط البحث داخل القائمة الجانبية */
+
+@keyframes highlightSearch {
+  0% {
+    background-color: #fff;
+    transform: translateX(0);
+  }
+  50% {
+    background-color: #fff3cd;
+    transform: translateX(5px);
+  }
+  100% {
+    background-color: #fff3cd;
+    transform: translateX(0);
+  }
+}
+
+/* Search bar */
 .search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #f9f9f9;
-    padding: 3px 8px;
-    width: 100%; /* ليتناسب مع الـ sidebar */
-    max-width: 90%; /* يمنع التمدد الزائد */
-    height: 35px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px; /* زوايا مستديرة لنعومة التصميم */
-    margin: 10px auto; /* محاذاة في المنتصف */
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 3px 8px;
+  width: 100%;
+  max-width: 90%;
+  height: 35px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px auto;
+  border: none;  
 }
 
-/* مربع الإدخال */
+.search-bar:focus-within {
+  border-color: #3e1fee;
+  box-shadow: 0 2px 8px rgba(62, 31, 238, 0.2);
+}
+
 .search-input {
-    flex: 1;
-    width: 70%;
-    border: none;
-    outline: none;
-    padding: 6px 8px;
-    background: transparent;
-    font-size: 12px; /* تصغير حجم النص */
-    color: #333;
+  flex: 1;
+  width: 70%;
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: #333;
+  background: transparent;
 }
 
-/* تحسين الإدخال عند الكتابة */
 .search-input::placeholder {
-    color: #aaa;
-    font-size: 12px; /* تصغير حجم النص داخل الـ placeholder */
+  font-size: 12px;
+  color: #999;
 }
 
-/* زر البحث */
+.clear-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 3px 5px;
+  color: #999;
+  transition: all 0.2s ease-in-out;
+  margin-right: 5px;
+}
+
+.clear-button:hover {
+  color: #ff4757;
+  transform: scale(1.1);
+}
+
 .search-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px; /* تصغير الأيقونة */
-    padding: 3px 5px;
-    transition: transform 0.2s ease-in-out;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 3px 5px;
+  transition: transform 0.2s ease-in-out;
+  color: #3e1fee;
 }
 
-/* لون أيقونة البحث */
-.search-button i {
-    color: #000000;
-    transition: color 0.2s ease-in-out;
-}
-
-/* تأثير عند التفاعل */
 .search-button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
+  color: #2c0fb8;
 }
 
-.search-button:hover i {
-    color: #007bff;
+/* No results message */
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #666;
 }
 
-/* جعل التصميم متجاوب مع الشاشات الصغيرة */
+.no-results p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.clear-search {
+  background: #3e1fee;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.3s ease;
+}
+
+.clear-search:hover {
+  background: #2c0fb8;
+}
+
+/* Search info */
+.search-summary {
+  padding: 10px 20px;
+  background-color: #e8f4fd;
+  margin: 10px 0;
+  border-radius: 5px;
+  border-left: 3px solid #3e1fee;
+}
+
+.search-info {
+  font-size: 12px;
+  color: #3e1fee;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Hide Sidebar on small screens */
+@media (max-width: 944px) {
+  .sidebar {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
-    .search-bar {
-        width: 100%;
-        max-width: 100%;
-        height: 32px;
-        padding: 2px 6px;
-    }
+  .search-bar {
+    width: 100%;
+    max-width: 100%;
+    height: 32px;
+    padding: 2px 6px;
+  }
 
-    .search-input {
-        font-size: 10px;
-        padding: 4px 6px;
-    }
+  .search-input {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
 
-    .search-button {
-        font-size: 14px;
-        padding: 2px;
-    }
+  .search-button,
+  .clear-button {
+    font-size: 14px;
+    padding: 2px;
+  }
 }
 
-
-/* ضبط حاوية الشعار */
+/* Logo */
 .logo-container {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc ;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
 }
 
-/* ضبط الشعار */
 .logo-container .logo {
-    width: 100%;
-    height:100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
 }
 
-/* صورة الشعار */
 .logo-img {
-    height: 100%;
-    transition: transform 0.3s ease-in-out;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
 }
 
+/* Search focus effect */
+.search-input:focus {
+  background-color: white;
+}
 
-
-
-
-
-/* تحسين التصميم على الشاشات الصغيرة */
-@media (max-width: 768px) {
-    .logo-container {
-        width: 100%;
-        justify-content: space-between;
-        padding: 5px 15px;
-    }
-
-    .logo-img {
-        max-width: 100px;
-    }
-
-    .logo-text {
-        font-size: 16px;
-    }
+/* Highlight matching text in search */
+.search-highlight {
+  background-color: #ffeb3b;
+  padding: 1px 2px;
+  border-radius: 2px;
 }

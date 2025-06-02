@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
+
 
 function Userinfo() {
+  const fullName = localStorage.getItem('fullName');
+
   return (
     <div className='Userinfo'>
-        <h5>Good Morning, Dr. Andreas!</h5>
-        <span>I hope you're in a good mood because there are 56 patients waiting</span>
+      <h5 className="tata" style={{ fontSize: "18px", color: "black" }}>Good Morning{fullName ? `, ${fullName}` : ''}!</h5>
+      <span style={{ fontSize: "16px", color: "#555" }}>I hope you're in a good mood</span>
     </div>
-  )
+  );
 }
 
 export default Userinfo;

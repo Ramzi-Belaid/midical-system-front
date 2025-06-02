@@ -1,0 +1,598 @@
+/* Medical Landing Page Styles */
+.medical-landing-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f0fdf4 100%);
+}
+
+/* Medical Background Animation */
+.medical-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.medical-particle {
+  position: absolute;
+  font-weight: bold;
+  animation: float 15s infinite linear;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.pulse-wave {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  animation: pulse-expand 4s infinite;
+  pointer-events: none;
+}
+
+.dna-helix {
+  position: absolute;
+  width: 4px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(59, 130, 246, 0.2) 25%,
+    rgba(34, 197, 94, 0.2) 50%,
+    rgba(59, 130, 246, 0.2) 75%,
+    transparent 100%
+  );
+  animation: helix-rotate 8s infinite linear;
+  transform-origin: center;
+}
+
+/* Static Medical Icons */
+.static-medical-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.medical-icon {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.heart-icon {
+  top: 20%;
+  left: 20%;
+  color: #ef4444;
+  animation: pulse 2s infinite;
+}
+
+.stethoscope-icon {
+  top: 40%;
+  right: 32%;
+  color: #3b82f6;
+  animation: bounce 2s infinite;
+}
+
+.activity-icon {
+  bottom: 40%;
+  left: 40%;
+  color: #22c55e;
+  animation: pulse 2s infinite;
+}
+
+.pill-icon {
+  top: 60%;
+  left: 33%;
+  color: #a855f7;
+  animation: bounce 2s infinite;
+}
+
+.cross-icon {
+  bottom: 60%;
+  right: 20%;
+  color: #ef4444;
+  animation: pulse 2s infinite;
+}
+
+.plus-icon {
+  top: 32%;
+  right: 25%;
+  color: #3b82f6;
+  animation: spin 8s infinite linear;
+}
+
+.zap-icon {
+  bottom: 32%;
+  left: 25%;
+  color: #eab308;
+  animation: pulse 2s infinite;
+}
+
+/* Navigation */
+.medical-navbar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  gap: 0.5rem;
+}
+
+.logo-circle {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #3b82f6, #22c55e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-cross {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.brand-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.login-btn {
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 0.5rem;
+  color: #3b82f6;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+}
+.login-btnn {
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 0.5rem;
+  color: #3b82f6;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.login-btnn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+    transform: translateY(-2px);
+
+}
+
+/* Main Content */
+.main-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  min-height: 68vh;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.subtitle {
+  color: #3b82f6;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.25rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.action-buttonss {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+}
+
+.admin-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+.signup-btn {
+  background: transparent;
+  color: #3b82f6;
+  padding: 1rem 2rem;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+  color: #1d4ed8;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 0.5rem;
+}
+/* Right Section */
+.right-section {
+  position: relative;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.large-card {
+  grid-column: span 2;
+  height: 16rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 197, 94, 0.1));
+  border-radius: 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.small-card {
+  height: 8rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.heart-card {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1));
+}
+
+.stethoscope-card {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+}
+
+.card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activity-icon-large {
+  font-size: 6rem;
+  color: #3b82f6;
+  animation: pulse 2s infinite;
+}
+
+.heart-icon-large {
+  font-size: 3rem;
+  color: #ef4444;
+  animation: pulse 2s infinite;
+}
+
+.stethoscope-icon-large {
+  font-size: 3rem;
+  color: #3b82f6;
+  animation: bounce 2s infinite;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 28rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  text-align: center;
+  background: rgba(254, 226, 226, 0.8);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-input {
+  padding: 0.75rem;
+  border: 1px solid rgba(209, 213, 219, 0.8);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.role-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.role-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.role-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.role-option input[type="radio"] {
+  accent-color: #3b82f6;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.login-submit-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-submit-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+}
+
+.cancel-btn {
+  flex: 1;
+  background: transparent;
+  color: #6b7280;
+  padding: 0.75rem;
+  border: 1px solid rgba(209, 213, 219, 0.8);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: rgba(243, 244, 246, 0.8);
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-expand {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes helix-rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .medical-navbar {
+    padding: 1rem;
+  }
+
+  .main-content {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}

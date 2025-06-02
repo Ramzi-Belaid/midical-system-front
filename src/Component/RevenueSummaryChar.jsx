@@ -5,7 +5,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { FaSackDollar } from "react-icons/fa6";
 import "./revenueSummaryChart.css";
 
-function RevenueSummaryChart({ specialization }) { // استقبال التخصص كمُعطى (prop)
+function RevenueSummaryChart({ specialization }) {
   const [timeFrame, setTimeFrame] = useState("week");
   const [data, setData] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -18,13 +18,19 @@ function RevenueSummaryChart({ specialization }) { // استقبال التخص�
       setError(null);
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/User/Secratry/Dashbord/RevenueSummary?filter=${timeFrame}&specialization=${specialization}`,
+          `http://localhost:3000/api/v1/User/doctors/Dashbord/RevenueSummary?filter=${timeFrame}`,
           {
-            headers: { Authorization: `Bearer ${localStorage.getItem("secretaryToken")}` },
+            headers: { Authorization: `Bearer ${localStorage.getItem("doctorToken")}` },
           }
         );
 
-        setData(response.data.revenueData || []);
+        console.log("Fetched Data:", response.data);
+
+        if (Array.isArray(response.data.revenueData) && response.data.revenueData.length > 0) {
+          setData(response.data.revenueData);
+        } else {
+          setData([]); // تجنب وضع `null` أو `undefined`
+        }
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("Failed to load data");
@@ -34,7 +40,10 @@ function RevenueSummaryChart({ specialization }) { // استقبال التخص�
     };
 
     fetchData();
-  }, [timeFrame, specialization]); // تحديث عند تغيير التخصص أو الفترة الزمنية
+  }, [timeFrame]);
+
+  // تحديد مفتاح X بناءً على الإطار الزمني
+  const xAxisKey = "day"; // البيانات المتوفرة حاليًا تحتوي على "day" فقط
 
   return (
     <div className="chart-container">
@@ -75,8 +84,8 @@ function RevenueSummaryChart({ specialization }) { // استقبال التخص�
         <p>No data available</p>
       ) : (
         <ResponsiveContainer width="100%" height={230}>
-          <LineChart data={data}>
-            <XAxis dataKey={timeFrame === "day" ? "hour" : timeFrame === "week" ? "day" : "month"} />
+          <LineChart data={data} key={timeFrame}> {/* 🔥 إجبار إعادة التصيير عند تغيير الفلتر */}
+            <XAxis dataKey={xAxisKey} />
             <YAxis />
             <Tooltip />
             <Legend />

@@ -65,7 +65,7 @@
       "trend": "up",
       "percentage": 15.4,
       "icon": "FaUsers",
-      "timeFrame": "Last Week"
+      "timeFrame": "Today"
     },
     {
       "id": "2",
@@ -867,6 +867,17 @@
       "color": "#00fffb",
       "backgroundColor": "#00fffb",
       "borderColor": "#00fffb",
+      "textColor": "#fff"
+    },
+    {
+      "id": "bf58",
+      "title": "tt",
+      "start": "2025-03-04",
+      "end": "2025-03-05",
+      "description": "",
+      "color": "#ff3300",
+      "backgroundColor": "#ff3300",
+      "borderColor": "#ff3300",
       "textColor": "#fff"
     }
   ],
@@ -1685,6 +1696,147 @@
       "patient": "",
       "medications": [],
       "date": "2025-03-16"
+    },
+    {
+      "id": "b555",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-16"
+    },
+    {
+      "id": "1672",
+      "patient": "",
+      "medications": [
+        {
+          "id": 1742158911675,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-03-16"
+    },
+    {
+      "id": "6250",
+      "patient": "",
+      "medications": [
+        {
+          "id": 1742158911675,
+          "name": "",
+          "dosage": ""
+        },
+        {
+          "id": 1742158915177,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-03-16"
+    },
+    {
+      "id": "e5f2",
+      "patient": "",
+      "medications": [
+        {
+          "id": 1742158911675,
+          "name": "a",
+          "dosage": ""
+        },
+        {
+          "id": 1742158915177,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-03-16"
+    },
+    {
+      "id": "b236",
+      "patient": "",
+      "medications": [
+        {
+          "id": 1742158911675,
+          "name": "asprin",
+          "dosage": ""
+        },
+        {
+          "id": 1742158915177,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-03-16"
+    },
+    {
+      "id": "c2f0",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-16"
+    },
+    {
+      "id": "a179",
+      "patient": "",
+      "medications": [
+        {
+          "id": 1742159006460,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-03-16"
+    },
+    {
+      "id": "b6ce",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-20"
+    },
+    {
+      "id": "3f14",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-21"
+    },
+    {
+      "id": "559c",
+      "patient": "",
+      "medications": [
+        {
+          "id": 1742553216667,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-03-21"
+    },
+    {
+      "id": "76db",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-21"
+    },
+    {
+      "id": "891d",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-21"
+    },
+    {
+      "id": "8e89",
+      "patient": "",
+      "medications": [
+        {
+          "id": 1742571568128,
+          "name": "",
+          "dosage": ""
+        }
+      ],
+      "date": "2025-03-21"
+    },
+    {
+      "id": "69e6",
+      "patient": "",
+      "medications": [],
+      "date": "2025-03-26"
     }
   ],
   "doctors": [
@@ -1870,12 +2022,27 @@
     {
       "id": "74d4",
       "name": "rr"
+    },
+    {
+      "id": "8c23",
+      "name": "asprin"
     }
   ],
-    "secretaries": [
-      { "id": 1, "full_name": "Sarah Connor", "email": "sarah@clinic.com", "phone": "123456789", "schedule": "8 AM - 4 PM" },
-      { "id": 2, "full_name": "John Doe", "email": "john@clinic.com", "phone": "987654321", "schedule": "10 AM - 6 PM" }
-    ],
-    "admins": []
-  
+  "secretaries": [
+    {
+      "id": "1",
+      "full_name": "Sarah Connor",
+      "email": "sarah@clinic.com",
+      "phone": "123456789",
+      "schedule": "8 AM - 4 PM"
+    },
+    {
+      "id": "2",
+      "full_name": "John Doe",
+      "email": "john@clinic.com",
+      "phone": "987654321",
+      "schedule": "10 AM - 6 PM"
+    }
+  ],
+  "admins": []
 }

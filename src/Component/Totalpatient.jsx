@@ -9,17 +9,20 @@ import "./totalpatients.css";
 
 const iconMap = {
   totalPatients: { icon: <FaUsers className="icon icon-patients" />, label: "Total Patients" },
-  totalAppointments: { icon: <IoCalendar className="icon icon-appointments" />, label: "Appointments" },
-  revenueSummary: { icon: <TbActivity className="icon icon-active" />, label: "Revenue Summary" },
+  appointments: { icon: <IoCalendar className="icon icon-appointments" />, label: "Appointments" },
+  revenueSummary: { icon: <TbActivity className="icon icon-active " />, label: "Revenue Summary" },
   pendingPayments: { icon: <FaDollarSign className="icon icon-revenue" />, label: "Pending Payments" },
 };
 
-function Totalpatients({ data, timeFrame, setTimeFrame }) {
+
+
+function Totalpatient({ data, timeFrame, setTimeFrame }) {
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  console.log("Totalpatients Data:", JSON.stringify(data, null, 2)); // Debugging output
+console.log("Received Data:", data);
 
-  if (!data || typeof data !== "object" || !data.data || typeof data.data !== "object") {
+  if (!data || typeof data !== "object") {
     return <p>No data available.</p>;
   }
 
@@ -28,13 +31,12 @@ function Totalpatients({ data, timeFrame, setTimeFrame }) {
       <div className="line">
         <h2 className="title">Overview:</h2>
 
-        {/* زر لاختيار الفترة الزمنية، يعرض القيمة الحالية بدلاً من نص ثابت */}
         <button onClick={() => setDropdownOpen(!dropdownOpen)} className="dropdown-button">
-          {timeFrame.toUpperCase()}<FaChevronDown className="dropdown-icon" />
+          {timeFrame.toUpperCase()} <FaChevronDown className="dropdown-icon" />
         </button>
 
         {dropdownOpen && (
-          <div className="timee-Dropdowne">
+          <div className="timee-Dropdown">
             {["day", "week", "year"].map((frame) => (
               <button
                 key={frame}
@@ -53,7 +55,7 @@ function Totalpatients({ data, timeFrame, setTimeFrame }) {
 
       {/* عرض الإحصائيات */}
       <div className="stats-grid">
-        {Object.entries(data.data).map(([key, value]) => {
+        {Object.entries(data).map(([key, value]) => {
           const iconData = iconMap[key] || { icon: <TbActivity className="icon icon-default" />, label: key };
 
           const count = value?.count ?? value?.total ?? 0;
@@ -66,6 +68,7 @@ function Totalpatients({ data, timeFrame, setTimeFrame }) {
                 {iconData.icon}
                 <h3>{iconData.label} {timeFrame.toLowerCase()}</h3>
               </div>
+              
               <div className="stats-row">
                 <p className="rrr">{count}</p>
                 {percentage !== null ? (
@@ -77,7 +80,8 @@ function Totalpatients({ data, timeFrame, setTimeFrame }) {
                   <p className="trend no-data">No Change</p>
                 )}
               </div>
-                <p style={{ height:"10px", display:"flex",justifyContent:"center",alignItems:"center", padding:"0px"}}>{timeFrame.toLowerCase() === "day" ? "Today" : `Last ${timeFrame.toLowerCase()}`}
+                <p style={{ height:"10px", display:"flex", justifyContent:"center", alignItems:"center", padding:"0px"}}>
+                  {timeFrame.toLowerCase() === "day" ? "Today" : `Last ${timeFrame.toLowerCase()}`}
                 </p>
             </div>
           );
@@ -87,4 +91,4 @@ function Totalpatients({ data, timeFrame, setTimeFrame }) {
   );
 }
 
-export default Totalpatients;
+export default Totalpatient;

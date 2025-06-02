@@ -1,16 +1,22 @@
 import React from "react";
-import logo from "../images/RR.png"; // Correct import
+import { Link } from "react-router-dom";
+import logo from "../images/RR.png";
 
 function Logo() {
     return (
-        <>
         <div className="logo-container">
-            <a href="/" className="logo">
-                <img alt="rr" src={logo} className="logo-img" /> {/* Use imported image */}
-            </a>
-            </div>
-        </>
-
+            <Link to="/" className="logo">
+                <img 
+                    alt="Medical System Logo" 
+                    src={logo || "/placeholder.svg"} 
+                    className="logo-img"
+                    onError={(e) => {
+                        e.target.style.display = "none";
+                        console.log("Logo image failed to load");
+                    }}
+                /> 
+            </Link>
+        </div>
     );
 }
 

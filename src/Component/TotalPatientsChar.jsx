@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import axios from "axios";
 import "./revenueSummaryChart.css";
 
-function TotalPatientsChart({ specialization }) { // استقبال التخصص كمُعطى (prop)
+function TotalPatientsChart() { 
   const [selectedTime, setSelectedTime] = useState("week");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [data, setData] = useState([]);
@@ -18,12 +18,13 @@ function TotalPatientsChart({ specialization }) { // استقبال التخصص
       setError(null);
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/User/Secratry/Dashbord/TotalPatient?filter=${selectedTime}&specialization=${specialization}`,
+          `http://localhost:3000/api/v1/User/doctors/Dashbord/TotalPatient?filter=${selectedTime}`,
           {
-            headers: { Authorization: `Bearer ${localStorage.getItem("secretaryToken")}` },
+            headers: { Authorization: `Bearer ${localStorage.getItem("doctorToken")}` },
           }
         );
 
+        console.log("Fetched Data:", response.data); // ✅ تحقق من البيانات
         setData(response.data.data || []);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -34,23 +35,31 @@ function TotalPatientsChart({ specialization }) { // استقبال التخصص
     };
 
     fetchData();
-  }, [selectedTime, specialization]); // تحديث عند تغيير الوقت أو التخصص
+  }, [selectedTime]);
 
   return (
     <div className="chart-container">
       <div className="chart-header">
         <h5><FaUsers /> Total Patients</h5>
 
-        {/* اختيار الفترة الزمنية */}
         <div className="dropdown-container">
           <button className="dropdown-button" onClick={() => setDropdownOpen(!dropdownOpen)}>
             {selectedTime.toUpperCase()} <IoIosArrowDown />
           </button>
           {dropdownOpen && (
             <div className="dropdown-menu-patients">
-              <button onClick={() => setSelectedTime("day")} className={selectedTime === "day" ? "active" : ""}>Day</button>
-              <button onClick={() => setSelectedTime("week")} className={selectedTime === "week" ? "active" : ""}>Week</button>
-              <button onClick={() => setSelectedTime("year")} className={selectedTime === "year" ? "active" : ""}>Year</button>
+              {["day", "week", "year"].map((time) => (
+                <button
+                  key={time}
+                  onClick={() => {
+                    setSelectedTime(time);
+                    setDropdownOpen(false);
+                  }}
+                  className={selectedTime === time ? "active" : ""}
+                >
+                  {time.toUpperCase()}
+                </button>
+              ))}
             </div>
           )}
         </div>
@@ -65,7 +74,7 @@ function TotalPatientsChart({ specialization }) { // استقبال التخصص
       ) : (
         <ResponsiveContainer width="100%" height={230}>
           <BarChart data={data}>
-            <XAxis dataKey="day" />
+            <XAxis dataKey="month" /> {/* ✅ تحديث dataKey ليطابق البيانات */}
             <YAxis />
             <Tooltip />
             <Legend />

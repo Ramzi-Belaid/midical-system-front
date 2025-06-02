@@ -1,27 +1,59 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+"use client"
+
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 function SecretaryNavNotic() {
-  const [notifications, setNotifications] = useState([]);
-  const [unreadCount, setUnreadCount] = useState(0);
+  const [notifications, setNotifications] = useState([])
+  const [unreadCount, setUnreadCount] = useState(0)
+
+  const secretaryToken = localStorage.getItem("secretaryToken")
+  const fullName = localStorage.getItem("fullName") // الاسم الكامل للمستخدم
+
+  const fetchNotifications = async () => {
+    // التأكد من وجود fullName و secretaryToken قبل المتابعة
+    if (!fullName) {
+      console.warn("No fullName found in localStorage")
+      setNotifications([])
+      setUnreadCount(0)
+      return
+    }
+
+    if (!secretaryToken) {
+      console.warn("No secretaryToken found in localStorage")
+      setNotifications([])
+      setUnreadCount(0)
+      return
+    }
+
+    try {
+      // جلب الإشعارات من السكرتير باستخدام نفس URL
+      const secResponse = await axios.get("http://localhost:3000/api/v1/User/Secratry/getAllnotificationss", {
+        headers: { Authorization: `Bearer ${secretaryToken}` },
+      })
+
+      // فلترة صارمة للإشعارات - فقط التي recipientName يساوي fullName تماماً
+      const secNotifs = secResponse.data.notifications.filter(
+        (notif) => notif.recipientName && notif.recipientName.trim() === fullName.trim(),
+      )
+
+      // ترتيب الإشعارات حسب التاريخ
+      secNotifs.sort((a, b) => new Date(b.dateIssued) - new Date(a.dateIssued))
+
+      setNotifications(secNotifs)
+      setUnreadCount(secNotifs.length)
+    } catch (error) {
+      console.error("Error fetching secretary notifications:", error)
+      setNotifications([])
+      setUnreadCount(0)
+    }
+  }
 
   useEffect(() => {
-    axios.get("http://localhost:5000/notifications")
-      .then(response => {
-        const allNotifications = response.data;
-
-        // 🔹 تصفية الإشعارات الخاصة بـ "safe" فقط
-        const safeNotifications = allNotifications.filter(notif => notif.category === "secretary");
-
-        // 🔹 ترتيب الإشعارات بالأحدث أولاً
-        safeNotifications.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        setNotifications(safeNotifications.slice(0, 3)); // عرض آخر 3 إشعارات فقط
-        setUnreadCount(safeNotifications.length); // العدد الإجمالي للإشعارات غير المقروءة
-      })
-      .catch(error => console.error("Error fetching notifications:", error));
-  }, []);
+    fetchNotifications()
+    const interval = setInterval(fetchNotifications, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <li className="nav-item dropdown">
@@ -33,41 +65,37 @@ function SecretaryNavNotic() {
           </div>
         )}
       </a>
-      <ul className="dropdown-menu notifications-menu dropdown-menu-end">
-        <li className="dropdown-header">
-          <h6>You have {unreadCount} new notifications</h6>
-        </li>
+      <div className="dropdown-menu notifications-menu dropdown-menu-end" style={{ zIndex: 9999 }}>
+        <ul className="list-unstyled mb-0">
+          <li className="dropdown-header">
+            <h6>
+              You have {unreadCount} new notification
+              {unreadCount !== 1 ? "s" : ""}
+            </h6>
+          </li>
 
-        {/* صندوق قابل للتمرير يحتوي على الإشعارات فقط */}
-        <div style={{ maxHeight: "250px", overflowY: "auto" }}>
-          {notifications.length === 0 ? (
-            <li className="notification-item">
-              <p>No new notifications</p>
-            </li>
-          ) : (
-            notifications.map(notif => (
-              <li key={notif.id} className="notification-item">
-                <i className="bi bi-bell-fill text-primary"></i>
-                <div>
-                  <h4>{notif.title}</h4>
-                  <p>{notif.message}</p>
-                  <p className="time">{new Date(notif.date).toLocaleTimeString()}</p>
-                </div>
+          <div style={{ maxHeight: "250px", overflowY: "auto" }}>
+            {notifications.length === 0 ? (
+              <li className="notification-item">
+                <p>No new notifications</p>
               </li>
-            ))
-          )}
-        </div>
-
-        {/* "Show all notifications" تبقى ثابتة في الأسفل */}
-        <li className="dropdown-footer">
-          <Link to="/Notifications" className="button">Show all notifications</Link>
-        </li>
-      </ul>
+            ) : (
+              notifications.map((notif) => (
+                <li key={notif._id} className="notification-item d-flex gap-2">
+                  <i className="bi bi-bell-fill text-primary"></i>
+                  <div>
+                    <h4>{notif.notificationTitle}</h4>
+                    <p>{notif.notificationMessage}</p>
+                    <p className="time">{new Date(notif.dateIssued).toLocaleString()}</p>
+                  </div>
+                </li>
+              ))
+            )}
+          </div>
+        </ul>
+      </div>
     </li>
-  );
+  )
 }
-
-
-
 
 export default SecretaryNavNotic

@@ -10,7 +10,15 @@
   background-color: #f8f9fa;
   color: rgb(0, 0, 0);
   overflow-y: auto;
-  z-index: 1;
+  z-index: 0;
+}
+/* عند وصول العرض إلى 780px أو أقل */
+@media (max-width: 944px) {
+  .calendar-container {
+      left: 0 !important; /* إزالة المسافة من اليسار */
+      width: 100% !important; /* جعل العرض 100% */
+      padding: 20px; /* تعديل الحشو عند العرض الضيق */
+  }
 }
 
 .modal {

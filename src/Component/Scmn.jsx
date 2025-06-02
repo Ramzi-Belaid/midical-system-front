@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Totalpatient from "./Totalpatient";
+import Totalpatients from "./Totalpatients";
 import "./menu.css";
-import RevenueSummaryChar from "./RevenueSummaryChar";
-import TotalPatientsChar from "./TotalPatientsChar";
+import RevenueSummaryChart from "./RevenueSummaryChart";
+import TotalPatientsChart from "./TotalPatientsChart";
 
-function Menu() {
+function Scmn() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [timeFrame, setTimeFrame] = useState("week");
+  const [specialization, setSpecialization] = useState("ORL"); // التحكم في التخصص
 
-  const token = localStorage.getItem("doctorToken");
+  const token = localStorage.getItem("secretaryToken");
 
   useEffect(() => {
     if (!token) {
@@ -25,7 +26,7 @@ function Menu() {
 
     axios
       .get(
-        `http://localhost:3000/api/v1/User/doctors/Dashbord?filter=${timeFrame}`,
+        `http://localhost:3000/api/v1/User/Secratry/Dashbord?filter=${timeFrame}&type=patient&specialization=${specialization}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,8 +34,7 @@ function Menu() {
         }
       )
       .then((res) => {
-        console.log("Fetched Data:", res.data); // ✅ تحقق من شكل البيانات
-        setData(res.data); // ✅ استخدم البيانات كما تظهر في console
+        setData(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -42,25 +42,38 @@ function Menu() {
         setError("Failed to load data");
         setLoading(false);
       });
-  }, [timeFrame]);
+  }, [timeFrame, specialization]); // تحديث عند تغيير التخصص أو الوقت
 
   return (
     <div className="menu-container">
+      {/* قائمة اختيار التخصص */}
+      <div className="dropdwon">
+        
+        <select
+          id="specialization"
+          value={specialization}
+          onChange={(e) => setSpecialization(e.target.value)}
+        >
+          <option value="ORL">ORL</option>
+          <option value="Ophthalmology">Ophthalmology</option>
+        </select>
+      </div>
+
       <div className="top-container">
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
           <p className="error">{error}</p>
         ) : (
-          <Totalpatient data={data.data} timeFrame={timeFrame} setTimeFrame={setTimeFrame} />
+          <Totalpatients data={data} timeFrame={timeFrame} setTimeFrame={setTimeFrame} />
         )}
 
         <div className="dashboard-container">
           <div className="chart-box total-patients-chart">
-            <TotalPatientsChar />
+            <TotalPatientsChart specialization={specialization} />
           </div>
           <div className="chart-box revenue-summary-chart">
-            <RevenueSummaryChar />
+            <RevenueSummaryChart specialization={specialization} />
           </div>
         </div>
       </div>
@@ -68,4 +81,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default Scmn;

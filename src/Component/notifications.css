@@ -1,138 +1,292 @@
+/* Notifications Container */
 .notifications-container {
-    position: fixed;
-    top: 60px;
-    left: 18%; 
-    width: 82%; 
-    height: calc(100vh - 60px);
-    max-height: 100vh;
-    padding: 20px 20px;
-    box-sizing: border-box;
-    background-color:#f8f9fa; 
-    color: rgb(0, 0, 0);
-    overflow-y: auto; 
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .notifications-list {
-    width: 50%;
-    padding: 10px;
-    overflow-y: auto;
-    background-color: #f8f8f8;
-  }
-  
-  .notification-card {
-    display: flex;
-    align-items: center;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
-  }
-  
-  .notification-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-  }
-    .profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
-    border: 2px solid #e0e0e0;
-  }
-  
-  .notification-content {
-    flex: 1;
-  }
-  
-  .notification-content h4 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .notification-content .date {
-    font-size: 14px;
-    color: #777;
-    margin-top: 4px;
-  }
-  
-  .notification-content .message {
-    font-size: 15px;
-    color: #555;
-    margin-top: 8px;
-  }
-  .profile-details {
-    position: sticky;
-    top: 10px; /* تبقى ثابتة بعد 20px من الأعلى */
-    width: 50%;
-    height: 95%;
-    padding: 10px;
-    background: #e8e8e8;
-    text-align: center;
-    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 60px;
+  left: 18%;
+  width: 82%;
+  height: calc(100vh - 60px);
+  max-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #1f2937;
+  overflow-y: auto;
+  z-index: 0;
 }
 
-  .profile-large {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ddd;
-    margin-bottom: 10px;
+/* Responsive Design */
+@media (max-width: 944px) {
+  .notifications-container {
+    left: 0 !important;
+    width: 100% !important;
+    padding: 1.5rem;
   }
-  
-  .profile-details h3 {
-    font-size: 20px;
-    color: #333;
+}
+
+@media (max-width: 480px) {
+  .notifications-container {
+    padding: 1rem;
   }
-  
-  .profile-details p {
-    font-size: 16px;
-    color: #666;
-    margin: 5px 0;
+}
+
+/* Header */
+.notifications-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.notifications-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.notifications-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Loading Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #64748b;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  /* زر الإغلاق */
-  .close-btn {
-    background: #594dffd2;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 14px;
-    transition: background 0.2s ease-in-out;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .close-btn:hover {
-    background: #1f16d3;
-    color: white;
+}
+
+/* Form Styles */
+.notification-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.notification-form input,
+.notification-form textarea,
+.notification-form select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: #1f2937;
+  box-sizing: border-box;
+}
+
+.notification-form input:focus,
+.notification-form textarea:focus,
+.notification-form select:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.notification-form input:disabled,
+.notification-form textarea:disabled,
+.notification-form select:disabled {
+  background-color: #f8fafc;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.notification-form textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.char-count {
+  display: block;
+  text-align: right;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.submit-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.submit-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.button-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Messages */
+.message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 1rem;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  /* تحسينات للهواتف */
-  @media (max-width: 768px) {
-    .notifications-container {
-      flex-direction: column;
-    }
-    .notifications-list,
-    .profile-details {
-      width: 100%;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+.message.success {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.message.error {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+.message-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.retry-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-left: auto;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* Select Styling */
+.notification-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 3rem;
+}
+
+/* Optgroup Styling */
+.notification-form optgroup {
+  font-weight: 600;
+  color: #374151;
+}
+
+.notification-form option {
+  padding: 0.5rem;
+  color: #1f2937;
+}
+
+/* Accessibility */
+.notification-form input:focus-visible,
+.notification-form textarea:focus-visible,
+.notification-form select:focus-visible,
+.submit-button:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .notifications-container {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    background: white;
+  }
+
+  .submit-button,
+  .retry-button {
+    display: none;
+  }
+}

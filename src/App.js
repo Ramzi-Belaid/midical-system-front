@@ -26,7 +26,12 @@ import AdminDoctor from "./Component/AdminDoctor"; // ✅ لوحة تحكم ال
 import AdminHeader from './Component/AdminHeader'
 import AdminSidbar from './Component/AdminSidbar'
 import AdminSecretary from './Component/AdminSecretary'
-// ✅ مكون لحماية المسارات بناءً على الدور
+import Scmn from'./Component/Scmn'
+import NotificationsSc from "./Component/NotificationsSc";
+import SecretaryShedule from "./Component/SecretaryShedule"; // الاسم الصحيح
+import Waitingroom from "./Component/Waitingroom";
+import Medical_File from "./Component/Medical_File";
+import Dossier_Midcal_File from "./Component/Dossier_Midcal_File";
 const ProtectedRoute = ({ element, allowedRoles }) => {
   const { isAuthenticated, user } = useAuth();
 
@@ -66,17 +71,32 @@ function App() {
           <Route path="/admin-signup" element={<AdminSignUp />} />
 
           {/* ✅ المسارات المحمية للطبيب والسكرتير */}
-          <Route path="/menu" element={<ProtectedRoute element={<Menu />} allowedRoles={["doctor", "secretary"]} />} />
+          <Route path="/menu" element={<ProtectedRoute element={<Menu />} allowedRoles={["doctor"]} />} />
           <Route path="/patients" element={<ProtectedRoute element={<Patient />} allowedRoles={["doctor"]} />} />
           <Route path="/appointments" element={<ProtectedRoute element={<Appointments />} allowedRoles={["doctor"]} />} />
           <Route path="/schedule" element={<ProtectedRoute element={<MyCalendar />} allowedRoles={["doctor"]} />} />
           <Route path="/notifications" element={<ProtectedRoute element={<Notifications />} allowedRoles={["doctor"]} />} />
           <Route path="/prescription" element={<ProtectedRoute element={<Prescription />} allowedRoles={["doctor"]} />} />
           <Route path="/prescription-search" element={<ProtectedRoute element={<PrescriptionSearch />} allowedRoles={["doctor"]} />} />
+          <Route path="/Medical_File" element={<ProtectedRoute element={<Medical_File />} allowedRoles={["doctor"]} />} />
+          <Route
+          path="/Dossier_Midcal_File"
+          element={
+          <ProtectedRoute
+          element={<Dossier_Midcal_File />}
+          allowedRoles={["doctor"]}
+          />
+          }
+          />
 
           {/* ✅ المسارات المحمية للسكرتير */}
           <Route path="/secretary-patients" element={<ProtectedRoute element={<Secretarypatients />} allowedRoles={["secretary"]} />} />
           <Route path="/secretary-appointments" element={<ProtectedRoute element={<Secretaryappointments />} allowedRoles={["secretary"]} />} />
+          <Route path="/secretary-menu" element={<ProtectedRoute element={<Scmn />} allowedRoles={["secretary"]} />} />
+          <Route path="/secretary-notifications" element={<ProtectedRoute element={<NotificationsSc/>} allowedRoles={["secretary"]} />} />
+          <Route path="/secretary-shedule" element={<ProtectedRoute element={<SecretaryShedule/>} allowedRoles={["secretary"]} />} />
+          <Route path="/secretary-waiting_room" element={<ProtectedRoute element={<Waitingroom/>} allowedRoles={["secretary"]} />} />
+
 
           {/* ✅ المسارات المحمية للمشرف */}
           <Route path="/Admin-Doctor" element={<ProtectedRoute element={<AdminDoctor />} allowedRoles={["admin"]} />} />

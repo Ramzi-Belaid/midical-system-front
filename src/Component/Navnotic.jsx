@@ -1,31 +1,68 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+"use client"
+
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 function NavNotic() {
-  const [notifications, setNotifications] = useState([]);
-  const [unreadCount, setUnreadCount] = useState(0);
+  const [notifications, setNotifications] = useState([])
+  const [unreadCount, setUnreadCount] = useState(0)
+
+  const doctorToken = localStorage.getItem("doctorToken")
+  const fullName = localStorage.getItem("fullName") // الاسم الكامل للمستخدم
+
+  const fetchNotifications = async () => {
+    // التأكد من وجود fullName و doctorToken قبل المتابعة
+    if (!fullName) {
+      console.warn("No fullName found in localStorage")
+      setNotifications([])
+      setUnreadCount(0)
+      return
+    }
+
+    if (!doctorToken) {
+      console.warn("No doctorToken found in localStorage")
+      setNotifications([])
+      setUnreadCount(0)
+      return
+    }
+
+    try {
+      // جلب الإشعارات من الأطباء باستخدام نفس URL
+      const doctorResponse = await axios.get("http://localhost:3000/api/v1/User/doctors/getAllNotificationss", {
+        headers: { Authorization: `Bearer ${doctorToken}` },
+      })
+
+      // فلترة صارمة للإشعارات - فقط التي recipientName يساوي fullName تماماً
+      const doctorNotifs = doctorResponse.data.notifications.filter(
+        (notif) => notif.recipientName && notif.recipientName.trim() === fullName.trim(),
+      )
+
+      // ترتيب الإشعارات حسب التاريخ
+      doctorNotifs.sort((a, b) => new Date(b.dateIssued) - new Date(a.dateIssued))
+
+      setNotifications(doctorNotifs)
+      setUnreadCount(doctorNotifs.length)
+    } catch (error) {
+      console.error("Error fetching doctor notifications:", error)
+      setNotifications([])
+      setUnreadCount(0)
+    }
+  }
 
   useEffect(() => {
-    axios.get("http://localhost:5000/notifications")
-      .then(response => {
-        const notifs = response.data;
-
-        // ترتيب الإشعارات بالأحدث أولاً
-        notifs.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        setNotifications(notifs.slice(0, 3)); // عرض آخر 3 إشعارات فقط
-        setUnreadCount(notifs.length); // العدد الإجمالي للإشعارات غير المقروءة
-      })
-      .catch(error => console.error("Error fetching notifications:", error));
-  }, []);
+    fetchNotifications()
+    const interval = setInterval(fetchNotifications, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <li className="nav-item dropdown">
       <a className="nav-link nav-icon" href="/" data-bs-toggle="dropdown">
         <i className="bi bi-bell" style={{ fontSize: "20px" }}></i>
         {unreadCount > 0 && (
-          <div className="badge bg-success badge-number" style={{ display:"flex"}}>{unreadCount}</div>
+          <div className="badge bg-success badge-number" style={{ display: "flex" }}>
+            {unreadCount}
+          </div>
         )}
       </a>
       <div className="dropdown-menu notifications-menu dropdown-menu-end">
@@ -33,34 +70,27 @@ function NavNotic() {
           <h6>You have {unreadCount} new notifications</h6>
         </li>
 
-        {/* صندوق قابل للتمرير يحتوي على الإشعارات فقط */}
         <div style={{ maxHeight: "250px", overflowY: "auto" }}>
           {notifications.length === 0 ? (
             <li className="notification-item">
               <p>No new notifications</p>
             </li>
           ) : (
-            notifications.map(notif => (
-              <li key={notif.id} className="notification-item">
+            notifications.map((notif) => (
+              <li key={notif._id} className="notification-item">
                 <i className="bi bi-bell-fill text-primary"></i>
                 <div>
-                  <h4>{notif.title}</h4>
-                  <p>{notif.message}</p>
-                  <p className="time">{new Date(notif.date).toLocaleTimeString()}</p>
+                  <h4>{notif.notificationTitle}</h4>
+                  <p>{notif.notificationMessage}</p>
+                  <p className="time">{new Date(notif.dateIssued).toLocaleString()}</p>
                 </div>
               </li>
             ))
           )}
         </div>
-
-        {/* "Show all notifications" تبقى ثابتة في الأسفل */}
-        <li className="dropdown-footer">
-          <Link to="/Notifications" className="button">Show all notifications</Link>
-        </li>
       </div>
     </li>
-  );
+  )
 }
 
-export default NavNotic;
-
+export default NavNotic

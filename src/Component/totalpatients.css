@@ -1,16 +1,24 @@
 .total-patients-container {
     padding:0px 10px;
-   
     border-radius: 12px;
   }
-  
-  .title {
-    font-size: 20px;
+  .line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 96%;
+  }
+  .line .title  {
+    font-size: 24px;
     font-weight: bold;
     color: #333;
     text-align: left;
   }
   
+  .title{
+    padding: 5px 5px;
+  }
   
   .stats-grid {
     display: grid;
@@ -21,115 +29,173 @@
   
   .stat-card {
     background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding:5px 10px;
+    border-radius: 12px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .stat-card:hover {
+}
+
+.stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-  }
-  
-  .stat-card .title {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card .title {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 5px;
+    gap: 12px;
     text-align: left;
-  }
-  
-  .stat-card   h3 {
-    font-size: 14px;
-    color: #555;
-    margin: 0;
-  }
-  
-  .stat-card .stats-row {
+}
+
+.stat-card h3 {
+    font-size: 16px;
+    color: #444;
+}
+
+.stat-card .stats-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .stat-card .value,
-  .stat-card .trend {
-    font-size: 18px;
-    margin: 0;
-  }
-  
-  /* لون الرقم والنسبة يكون نفس لون الأيقونة */
-  .stat-card .value.patients,
-  .stat-card .trend.patients {
-    color: #e0aaff;
-  }
-  
-  .stat-card .value.appointments,
-  .stat-card .trend.appointments {
+}
+
+.stat-card .value,
+.stat-card .trend {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* تحسين ألوان النص بناءً على نوع الإحصائية */
+.stat-card .value.patients,
+.stat-card .trend.patients {
+    color: #9c27b0;
+}
+
+.stat-card .value.appointments,
+.stat-card .trend.appointments {
     color: #007bff;
-  }
-  
-  .stat-card .value.active,
-  .stat-card .trend.active {
+}
+
+.stat-card .value.active,
+.stat-card .trend.active {
     color: #4CAF50;
-  }
-  
-  .stat-card .value.revenue,
-  .stat-card .trend.revenue {
-    color: #f7b801;
-  }
-  
-  .stat-card p.time-frame {
-    font-size: 12px;
+}
+
+.stat-card .value.revenue,
+.stat-card .trend.revenue {
+    color: #ff9800;
+}
+
+/* تحسين ألوان التغيير بناءً على الاتجاه */
+.trend.positive {
+    color: #4CAF50;
+}
+
+.trend.negative {
+    color: #f44336;
+}
+
+.stat-card p.time-frame {
+    font-size: 13px;
     color: gray;
-    margin-top: 5px;
-  }
-  
-  .iconn {
-    font-size: 30px;
-    padding: 5px;
+    margin-top: 6px;
+}
+
+.iconn {
+    font-size: 32px;
+    padding: 6px;
     border-radius: 50%;
-    border: 1px solid rgb(163, 161, 161);
-  }
-  
-  .icon-patients {
-    color: #e0aaff;
-    font-size: 30px;
-    padding: 5px;
+    border: 1px solid #a3a1a1;
+}
+
+.icon-patients {
+    color: #9c27b0;
+    font-size: 32px;
+    padding: 6px;
     border-radius: 50%;
-  }
-  
-  .icon-appointments {
+}
+
+.icon-appointments {
     color: #007bff;
-    font-size: 20px;
-    border-radius: 50%;
-  }
-  
-  .icon-active {
-    color: #4CAF50;
-    font-size: 30px;
-    padding: 5px;
-    border-radius: 50%;
-  }
-  
-  .icon-revenue {
-    color: #f7b801;
-    font-size: 30px;
-    padding: 5px;
-    border-radius: 50%;
-  }
-  
-  .trend-icon {
-    font-size: 20px;
-    margin-right: 5px;
-  }
-  .rrr{
     font-size: 24px;
-    margin: 5px 0px;
-  }
-  .cont{
+    border-radius: 50%;
+}
+
+.icon-active {
+    color: #4CAF50;
+    font-size: 32px;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.icon-revenue {
+    color: #ff9800;
+    font-size: 32px;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.trend-icon {
+    font-size: 22px;
+    margin-right: 6px;
+}
+
+.rrr {
+    font-size: 26px;
+    margin: 6px 0;
+}
+
+.cont {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-  }
+}
+
+  .timee-Dropdowne {
+    position: absolute;
+    top: 107px;
+    left: 872px;
+    width: 140px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 10;
+}
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+   display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown-button:hover svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+.timee-Dropdown{
+    position: absolute;
+    top: 64px;
+    left: 870px;
+    width: 140px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 10;
+}

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FaUserDoctor } from "react-icons/fa6";
 import { MdPersonalInjury } from "react-icons/md";
 import { BsPinAngleFill } from "react-icons/bs";
-import axios from "axios"; // استيراد axios لجلب البيانات
+import axios from "axios";
 import Overlay from "./Overlay";
-import profileImg from "../images/profile_M.jpg"; // تأكد من وجود الصورة
+import profileImg from "../images/profile_M.jpg"; // تأكد من وجود الصورة في المسار الصحيح
 
 const NavOverlay = ({ isOverlayOpen, clsoeOverlay }) => {
   const [doctor, setDoctor] = useState(null);
@@ -14,10 +14,19 @@ const NavOverlay = ({ isOverlayOpen, clsoeOverlay }) => {
   useEffect(() => {
     if (!isOverlayOpen) return;
 
+    const doctorToken = localStorage.getItem("doctorToken");
+    if (!doctorToken) {
+      setError("Doctor token not found!");
+      setLoading(false);
+      return;
+    }
+
     const fetchDoctorData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/users/1"); 
-        setDoctor(response.data);
+        const response = await axios.get("http://localhost:3000/api/v1/User/doctors/Profil", {
+          headers: { Authorization: `Bearer ${doctorToken}` },
+        });
+        setDoctor(response.data.doctor);
       } catch (err) {
         setError("Failed to load doctor data");
       } finally {
@@ -40,62 +49,64 @@ const NavOverlay = ({ isOverlayOpen, clsoeOverlay }) => {
         ) : (
           <>
             <div className="rr">
-              {/* الصورة والمعلومات الأساسية */}
+              {/* معلومات الطبيب */}
               <div className="inf-profile-left">
                 <div className="profil">
-                  <img src={profileImg} alt="Doctor" className="profile-image" />
+                  <img
+                    src={doctor?.profileImage ? `http://localhost:3000/${doctor.profileImage}` : profileImg}
+                    alt="Doctor"
+                    className="profile-image"
+                  />
                 </div>
                 <div className="profil-info">
-                  <h4>{doctor.name}</h4>
-                  <p>{doctor.specialty || "Specialist"}</p>
-                  <p><i className="bi bi-shop"></i> {doctor.location || "Unknown"}</p>
-                  <p><i className="bi bi-envelope"></i> {doctor.email}</p>
-                  <p><i className="bi bi-telephone-fill"></i> {doctor.phone || "(Not Available)"}</p>
-                  <p className="rating">
-                    {[...Array(5)].map((_, index) => (
-                      <i key={index} className="bi bi-star-fill"></i>
-                    ))}
-                  </p>
+                  <h4>{doctor?.fullName || "Unknown Doctor"}</h4>
+                  <div><strong>Specialization:</strong> {doctor?.specialization || "Specialist"}</div>
+                  <div><strong>Hospital:</strong> {doctor?.Hospital || "Unknown Hospital"}</div>
+                  <div><strong>Email:</strong> {doctor?.email || "No Email"}</div>
+                  <div><strong>Phone:</strong> {doctor?.phone || "(Not Available)"}</div>
+                  <div><strong>Location:</strong> {doctor?.location || "No location provided"}</div>
+                  <div><strong>Online:</strong> {doctor?.Online || "Unknown"}</div>
                 </div>
               </div>
 
               {/* السيرة الذاتية */}
-              <div className="section">
-                <h3 className="section-title">Short Bio</h3>
-                <p className="section-text">"{doctor.description || "No bio available"}"</p>
-                <a href="/" className="read-more">Read more</a>
+              <div className="sectionn">
+                <h3 className="section-titlee">Short Bio</h3>
+                <p className="section-text">"{doctor?.Short_Bio || "No bio available"}"</p>
               </div>
 
               {/* قائمة الخدمات والأسعار */}
-              <div className="section">
-                <h3 className="section-title">Services and Price List</h3>
+              <div className="sectionn">
+                <h3 className="section-titlee">Services and Price</h3>
                 <ul className="service-list">
-                  {doctor.services?.map((service, index) => (
-                    <li key={index} className="service-list-item">
-                      {service.name} <span className="service-price">${service.price}</span>
-                    </li>
-                  ))}
+                  {doctor?.services?.length > 0 ? (
+                    doctor.services.map((item, index) => (
+                      <li key={index} className="service-list-item">
+                        {item.service}
+                        <span className="service-price">${item.price}</span>
+                      </li>
+                    ))
+                  ) : (
+                    <li>No services available</li>
+                  )}
                 </ul>
-                <a href="/" className="read-more">Read more</a>
               </div>
             </div>
 
-            {/* معلومات إضافية عن الدكتور */}
+            {/* معلومات إضافية */}
             <div className="container-left">
               <div className="inf-profile-right">
-                <h3 className="section-title">About the Doctor</h3>
+                <h3 className="section-titlee">About the Doctor</h3>
                 <ul className="section-text">
                   <li>
-                    <div><BsPinAngleFill color="yellow" size={20} /> {doctor.experience || "N/A"} years</div>
+                    <div><BsPinAngleFill color="yellow" size={20} /> {doctor?.yearsOfExperience || "N/A"} years</div>
                     <div><span>of experience</span></div>
                   </li>
                   <li>
-                    <div><MdPersonalInjury color="yellow" size={20} /> {doctor.recommendation || "N/A"}% Recommend</div>
-                    <div><span>({doctor.patients || 0} patients)</span></div>
+                    <div><MdPersonalInjury color="yellow" size={20} /> Online {doctor?.Online || "Unknown"} consultations available</div>
                   </li>
                   <li>
-                    <div><FaUserDoctor color="yellow" size={20} /> {doctor.availability || "Not Available"}</div>
-                    <div><span>consultations available</span></div>
+                    <div><FaUserDoctor color="yellow" size={20} /> Doctor ID: {doctor?._id}</div>
                   </li>
                 </ul>
               </div>

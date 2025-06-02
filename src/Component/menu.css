@@ -12,5 +12,62 @@
     overflow-y: auto; /* السماح بالتمرير عند الحاجة */
     z-index: 0; /* تأكد من ظهوره فوق العناصر الأخرى */
 }
+/* تنسيق العنصر الأساسي للقائمة المنسدلة */
+.dropdwon {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    width: 100%;
+    
+}
+
+.dropdwon label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    
+}
+
+/* تنسيق القائمة المنسدلة */
+.dropdwon select {
+    width: 40%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: rgb(217, 217, 217);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropdwon select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* تحسين مظهر الخيارات داخل القائمة */
+.dropdwon select option {
+    padding: 10px;
+    background: white;
+    font-size: 14px;
+    
+    border: none;
+}
+
+/* عند تمرير الماوس */
+.dropdwon select:hover {
+    border-color: #0056b3;
+}
 
 
+/* عند وصول العرض إلى 780px أو أقل */
+@media (max-width: 944px) {
+    .menu-container {
+        left: 0 !important; /* إزالة المسافة من اليسار */
+        width: 100% !important; /* جعل العرض 100% */
+        padding: 20px; /* تعديل الحشو عند العرض الضيق إذا لزم الأمر */
+    }
+}

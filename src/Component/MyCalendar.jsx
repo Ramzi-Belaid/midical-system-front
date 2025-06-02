@@ -16,33 +16,49 @@ const MyCalendar = () => {
 
   const [newEvent, setNewEvent] = useState({
     title: "",
-    start: "",
-    end: "",
+    startDate: "",
+    endDate: "",
     description: "",
-    color: "#007bff",
+    backgroundColor: "#007bff",
+    borderColor: "#007bff",
+    color: "#fff",
+    specialization: "", // أضف هذا السطر
+
   });
 
+  const doctorToken = localStorage.getItem("doctorToken");
+  
   useEffect(() => {
-    axios.get("http://localhost:5000/events")
+    axios.get("http://localhost:3000/api/v1/User/doctors/Shedule", {
+      headers: { Authorization: `Bearer ${doctorToken}` },
+    })
       .then((response) => {
-        const updatedEvents = response.data.map((event) => ({
+        const updatedEvents = response.data.allshedule.map((event) => ({
           ...event,
-          backgroundColor: event.color || "#007bff",
-          borderColor: event.color || "#007bff",
+          start: event.startDate,
+          end: event.endDate,
           textColor: "#fff",
+          display: "block",
         }));
         setEvents(updatedEvents);
       })
       .catch((error) => console.error("Error fetching events:", error));
-  }, []);
+  }, [doctorToken]);
 
   const handleSelect = (selectionInfo) => {
+    const startOfDay = new Date(selectionInfo.startStr);
+    startOfDay.setHours(0, 0, 0, 0);
+    const endOfDay = new Date(selectionInfo.startStr);
+    endOfDay.setHours(23, 59, 59, 999);
+
     setNewEvent({
       title: "",
-      start: selectionInfo.startStr,
-      end: selectionInfo.endStr,
+      startDate: startOfDay.toISOString(),
+      endDate: endOfDay.toISOString(),
       description: "",
-      color: "#007bff",
+      backgroundColor: "#007bff",
+      borderColor: "#007bff",
+      color: "#fff",
     });
     setIsAddingEvent(true);
     setModalIsOpen(true);
@@ -61,23 +77,14 @@ const MyCalendar = () => {
   };
 
   const handleSaveEvent = () => {
-    if (!newEvent.title || !newEvent.start || !newEvent.end) {
+    if (!newEvent.title || !newEvent.startDate || !newEvent.endDate) {
       alert("Please fill in all fields!");
       return;
     }
 
-    const eventToAdd = {
-      title: newEvent.title,
-      start: newEvent.start,
-      end: newEvent.end,
-      description: newEvent.description,
-      color: newEvent.color,
-      backgroundColor: newEvent.color,
-      borderColor: newEvent.color,
-      textColor: "#fff",
-    };
-
-    axios.post("http://localhost:5000/events", eventToAdd)
+    axios.post("http://localhost:3000/api/v1/User/doctors/addShedule", newEvent, {
+      headers: { Authorization: `Bearer ${doctorToken}` },
+    })
       .then((response) => {
         setEvents([...events, response.data]);
         closeModal();
@@ -111,23 +118,33 @@ const MyCalendar = () => {
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="modal" overlayClassName="modal-overlay">
         {isAddingEvent ? (
           <div className="modal-content">
-            <h5>Add New Event</h5>
+            <h5 style={{ backgroundColor: newEvent.backgroundColor, color: "#fff", padding: "10px" }}>Add New Event</h5>
             <input
               type="text"
               placeholder="Event Title"
               value={newEvent.title}
               onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
             />
+            <select
+            value={newEvent.specialization}
+            onChange={(e) => setNewEvent({ ...newEvent, specialization: e.target.value })}
+            className="specialization-select"
+          >
+          <option value="">-- Select Specialization --</option>
+          <option value="ORL">ORL</option>
+          <option value="Ophthalmology">Ophthalmology</option>
+          </select>
+
             <div className="date-container">
               <input
                 type="datetime-local"
-                value={newEvent.start}
-                onChange={(e) => setNewEvent({ ...newEvent, start: e.target.value })}
+                value={newEvent.startDate}
+                onChange={(e) => setNewEvent({ ...newEvent, startDate: e.target.value })}
               />
               <input
                 type="datetime-local"
-                value={newEvent.end}
-                onChange={(e) => setNewEvent({ ...newEvent, end: e.target.value })}
+                value={newEvent.endDate}
+                onChange={(e) => setNewEvent({ ...newEvent, endDate: e.target.value })}
               />
             </div>
             <textarea
@@ -137,17 +154,17 @@ const MyCalendar = () => {
             />
             <input
               type="color"
-              value={newEvent.color}
-              onChange={(e) => setNewEvent({ ...newEvent, color: e.target.value })}
+              value={newEvent.backgroundColor}
+              onChange={(e) => setNewEvent({ ...newEvent, backgroundColor: e.target.value, borderColor: e.target.value })}
             />
             <button className="save-btn" onClick={handleSaveEvent}>Save Event</button>
           </div>
         ) : selectedEvent ? (
           <div className="modal-content" style={{ backgroundColor: selectedEvent.color }}>
-            <h2>{selectedEvent.title}</h2>
-            <p><strong>Start:</strong> {selectedEvent.start}</p>
-            <p><strong>End:</strong> {selectedEvent.end}</p>
-            <p><strong>Description:</strong> {selectedEvent.description}</p>
+            <h2 style={{ backgroundColor: selectedEvent.color, color: "#fff", padding: "10px" }}>{selectedEvent.title}</h2>
+            <p><strong style={{color: "beige"}}>Start:</strong> {selectedEvent.start}</p>
+            <p><strong style={{color: "beige"}}>End:</strong> {selectedEvent.end}</p>
+            <p><strong style={{color: "beige"}}>Description:</strong> {selectedEvent.description}</p>
           </div>
         ) : null}
       </Modal>

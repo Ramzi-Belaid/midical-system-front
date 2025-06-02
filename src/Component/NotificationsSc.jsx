@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react"
 import axios from "axios"
 import "./notifications.css"
 
-function Notifications() {
+function NotificationsSc() {
   const [profiles, setProfiles] = useState({ doctors: [], secretaries: [] })
   const [recipientName, setRecipientName] = useState("")
   const [title, setTitle] = useState("")
@@ -14,7 +14,7 @@ function Notifications() {
   const [loading, setLoading] = useState(false)
   const [fetchingProfiles, setFetchingProfiles] = useState(true)
 
-  const doctorToken = localStorage.getItem("doctorToken")
+  const secretaryToken = localStorage.getItem("secretaryToken")
 
   // Clear messages after timeout
   const clearMessages = useCallback(() => {
@@ -26,7 +26,7 @@ function Notifications() {
 
   // Fetch profiles function
   const fetchProfiles = useCallback(async () => {
-    if (!doctorToken) {
+    if (!secretaryToken) {
       setErrorMsg("No authentication token found. Please log in again.")
       setFetchingProfiles(false)
       return
@@ -36,14 +36,14 @@ function Notifications() {
       setFetchingProfiles(true)
       setErrorMsg("")
 
-      const response = await axios.get("http://localhost:3000/api/v1/User/doctors/getRole", {
+      const response = await axios.get("http://localhost:3000/api/v1/User/Secratry/getRoleSc", {
         headers: {
-          Authorization: `Bearer ${doctorToken}`,
+          Authorization: `Bearer ${secretaryToken}`,
           "Content-Type": "application/json",
         },
       })
 
-      if (response.data && response.data.success) {
+      if (response.data) {
         const { doctors = [], secretaries = [] } = response.data
 
         if (doctors.length === 0 && secretaries.length === 0) {
@@ -52,7 +52,7 @@ function Notifications() {
           setProfiles({ doctors, secretaries })
         }
       } else {
-        throw new Error(response.data?.message || "Invalid response format")
+        throw new Error("Invalid response format")
       }
     } catch (error) {
       console.error("Error fetching profiles:", error)
@@ -81,7 +81,7 @@ function Notifications() {
     } finally {
       setFetchingProfiles(false)
     }
-  }, [doctorToken])
+  }, [secretaryToken])
 
   useEffect(() => {
     fetchProfiles()
@@ -131,7 +131,7 @@ function Notifications() {
       return
     }
 
-    if (!doctorToken) {
+    if (!secretaryToken) {
       setErrorMsg("Authentication token not found. Please log in again.")
       clearMessages()
       return
@@ -147,22 +147,26 @@ function Notifications() {
         status: "unread",
       }
 
-      const response = await axios.post("http://localhost:3000/api/v1/User/doctors/addNotification", newNotification, {
-        headers: {
-          Authorization: `Bearer ${doctorToken}`,
-          "Content-Type": "application/json",
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/User/Secratry/addNotificationSc",
+        newNotification,
+        {
+          headers: {
+            Authorization: `Bearer ${secretaryToken}`,
+            "Content-Type": "application/json",
+          },
         },
-      })
+      )
 
-      if (response.data && response.data.success) {
-        setSuccessMsg("Notification sent successfully!")
+      if (response.data) {
+        setSuccessMsg("✅ Notification sent successfully!")
         // Reset form
         setTitle("")
         setMessage("")
         setRecipientName("")
         clearMessages()
       } else {
-        throw new Error(response.data?.message || "Failed to send notification")
+        throw new Error("Failed to send notification")
       }
     } catch (error) {
       console.error("Error sending notification:", error)
@@ -178,12 +182,12 @@ function Notifications() {
         } else if (status === 400) {
           setErrorMsg(`Invalid data: ${message}`)
         } else {
-          setErrorMsg(`Server error: ${message}`)
+          setErrorMsg(`❌ Server error: ${message}`)
         }
       } else if (error.request) {
-        setErrorMsg("Network error. Please check your connection and try again.")
+        setErrorMsg("❌ Network error. Please check your connection and try again.")
       } else {
-        setErrorMsg(error.message || "Failed to send notification. Please try again.")
+        setErrorMsg(error.message || "❌ Failed to send notification. Please try again.")
       }
 
       clearMessages()
@@ -310,4 +314,4 @@ function Notifications() {
   )
 }
 
-export default Notifications
+export default NotificationsSc
