@@ -33,13 +33,22 @@ A React + Node.js project to manage a medical clinic system, including appointme
 ### Home Page
 ![Home Page](./img/ramzi7.png)
 
-### Dashboard
-![Dashboard](./img/ramzi9.png)
+### Dashboard for Doctor
+![Dashboard](./img/ramzi1.png)
 
-### User Profile
+### schudel for Doctor
+![schudel](./img/ramzi3.png)
+
+### Presprcption for Doctor
+![Presprcption](./img/ramzi4.png)
+
+###  Profile for Doctor
 ![User Profile](./img/ramzi6.png)
 
-### Patient Management / Prescriptions
+### Dashboard for secrtary
+![Dashboard](./img/ramzi9.png)
+
+### Patient Management
 ![Patient](./img/ramzi10.png)
 
 ### Notifications Example
