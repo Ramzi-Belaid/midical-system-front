@@ -43,7 +43,7 @@ A React + Node.js project to manage a medical clinic system, including appointme
 ![Presprcption](./img/Prescrption.png)
 
 ###  Profile for Doctor
-![User Profile](./img/Profil_DR.png)
+![User Profile](./img/Profile_DR.png)
 
 ### Dashboard for secrtary
 ![Dashboard](./img/Dshbord_Secrtary.png)
