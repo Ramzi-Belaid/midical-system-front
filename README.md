@@ -34,7 +34,7 @@ A React + Node.js project to manage a medical clinic system, including appointme
 ![Home Page](./img/Home.png)
 
 ### Dashboard for Doctor
-![Dashboard](./img/Profil.png)
+![Dashboard](./img/Dashbord_DR.png)
 
 ### schudel for Doctor
 ![schudel](./img/Schudel.png)
@@ -49,10 +49,10 @@ A React + Node.js project to manage a medical clinic system, including appointme
 ![Dashboard](./img/Dshbord_Secrtary.png)
 
 ### Patient Management
-![Patient](./img/Secrtry_Patient.png)
+![Patient](./img/Secrtary_Patient.png)
 
 ### Notifications Example
-![Notifications](./img/Notification.png)
+![Notifications](./img/Notifecation.png)
 
 ## Technologies
 - **Front-end:** React, HTML, CSS, JavaScript  
