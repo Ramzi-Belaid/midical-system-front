@@ -1,33 +1,55 @@
 # Medical System Management
 
 ## Description
-A React + Node.js project to manage appointments, patient records, and dashboards for doctors and secretaries. This project demonstrates practical skills in web development and database management.
+A React + Node.js project to manage a medical clinic system, including appointments, patient records, dashboards for doctors, secretaries, and administrative management. Demonstrates practical skills in web development, database management, and role-based access control.
+
+## Project Features
+- **Admin Panel:**
+  - Add and manage doctors
+  - Add and manage secretaries
+
+- **Doctor Panel:**
+  - Fill and manage personal schedule
+  - View and manage appointments
+  - Access and update patient medical records
+  - Create prescriptions (ordonnances)
+  - Issue medical certificates
+  - View notifications
+  - Profile management
+
+- **Secretary Panel:**
+  - Verify and manage doctor's schedule
+  - Manage patient appointments
+  - Manage patient basic records
+  - Organize doctor rooms
+  - View notifications
+
+- **Common Features:**
+  - Notifications system for all roles
+  - Responsive user interface
+  - Role-based access control
 
 ## Project Screenshots
 ### Home Page
-![Home Page](images/ramzi7.png)
+![Home Page](../front-end/src/images/ramzi7.png)
 
 ### Dashboard
-![Dashboard](images/ramzi9.png)
+![Dashboard](../front-end/src/images/ramzi9.png)
 
 ### User Profile
-![User Profile](images/ramzi6.png)
+![User Profile](../front-end/src/images/ramzi6.png)
 
-### Patient for Secretary
-![Patient](images/ramzi10.png)
+### Patient Management / Prescriptions
+![Patient](../front-end/src/images/ramzi10.png)
 
-## Features
-- Manage patient appointments efficiently
-- View and update patient records
-- Dashboard for doctors with overview statistics
-- Notifications system for secretaries
-- User-friendly interface
+### Notifications Example
+![Notifications](../front-end/src/images/ramzi11.png)
 
 ## Technologies
 - **Front-end:** React, HTML, CSS, JavaScript  
 - **Back-end:** Node.js, Express  
 - **Database:** MongoDB  
-- **Others:** Axios for API calls
+- **Others:** Axios for API calls, JWT for authentication
 
 ## How to Run Locally
 1. Clone the repository:  
